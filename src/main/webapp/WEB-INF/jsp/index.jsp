@@ -2,5 +2,5 @@
 
 <jsp:include page="include/header.jsp"/>
 
-<h1>Hello World!</h1>
+<h1 class="text-center">Book World</h1>
 <jsp:include page="include/footer.jsp"/>

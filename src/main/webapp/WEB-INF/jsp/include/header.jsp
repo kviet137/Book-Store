@@ -3,7 +3,7 @@
 
 <html>
 <head>
-    <title>Title</title>
+    <title>Book World</title>
 
 
     <!-- these 2 lines are needed to bring in bootstrap -->
@@ -19,7 +19,7 @@
 </head>
 <body>
 <section>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-0">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -45,6 +45,20 @@
                     </li>
                 </ul>
             </div>
+
         </div>
     </nav>
 </section>
+    <div class="container">
+        <form action="/employee/search" class="mb-0">
+            <div class="row justify-content-center">
+                <div class="col-6 d-flex align-items-end">
+                    <div class="flex-grow-1 me-2">
+                        <label for="firstNameId" class="form-label"></label>
+                        <input type="text" class="form-control" id="firstNameId" name="firstName" placeholder="Search for books..." value="${search}">
+                    </div>
+                    <button type="submit" class="btn btn-primary align-self-end">Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
