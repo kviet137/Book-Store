@@ -19,46 +19,38 @@
 </head>
 <body>
 <section>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-0">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="/index">Book World</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="top-fluid-container">
+                <form action="/employee/search" class="mb-0">
+                    <div class="row justify-content-center">
+                        <div class="col-6 d-flex align-items-end">
+                            <div class="flex-grow-1 me-2">
+                                <label for="firstNameId" class="form-label"></label>
+                                <input type="text" class="form-control" id="firstNameId" name="firstName" placeholder="Search for books..."  style="width: 650px;" value="${search}">
+                            </div>
+                            <button type="submit" class="btn btn-primary align-self-end">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/index">Index</a>
+                <ul class="navbar-nav ms-auto" >
+                    <li class="nav-item ms-auto">
+                        <a class="nav-link" href="/customer/search">Login</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/customer/search">Search Customer</a>
+                    <li class="nav-item ms-auto">
+                        <a class="nav-link" href="/customer/create">Cart</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/customer/create">Create Customer </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/employee/search">Search Employee</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/employee/create">Create Employee</a>
-                    </li>
+
                 </ul>
             </div>
-
         </div>
     </nav>
 </section>
-    <div class="container">
-        <form action="/employee/search" class="mb-0">
-            <div class="row justify-content-center">
-                <div class="col-6 d-flex align-items-end">
-                    <div class="flex-grow-1 me-2">
-                        <label for="firstNameId" class="form-label"></label>
-                        <input type="text" class="form-control" id="firstNameId" name="firstName" placeholder="Search for books..." value="${search}">
-                    </div>
-                    <button type="submit" class="btn btn-primary align-self-end">Search</button>
-                </div>
-            </div>
-        </form>
-    </div>
+
