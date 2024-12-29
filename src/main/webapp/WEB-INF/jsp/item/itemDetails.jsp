@@ -10,10 +10,17 @@
     <p><strong>Description:</strong> This is a detailed description of the book.</p>
     <p><strong>Price:</strong> $20.99</p>
 
-    <a href="/cart/add/1" class="btn btn-success">Add to Cart</a>
+    <button class="btn btn-sm btn-outline-primary me-2" onclick="addToCart(1)">Add to Cart</button>
+
 </div>
 
 
+<script>
+    function addToCart(productId) {
+        alert('Product ' + productId + ' added to cart!');
+    }
+
+</script>
 
 
 

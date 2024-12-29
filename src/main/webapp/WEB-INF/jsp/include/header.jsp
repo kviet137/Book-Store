@@ -45,10 +45,6 @@
                     <li class="nav-item ms-auto">
                         <a class="nav-link" href="/user/cart">Login</a>
                     </li>
-
-                    <li class="nav-item ms-auto">
-                        <a class="nav-link" href="/item/detail">Item Detail</a>
-                    </li>
                     <li class="nav-item ms-auto">
                         <a class="nav-link" href="/item/list">Item List</a>
                     </li>
