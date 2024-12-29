@@ -31,7 +31,7 @@
             </button>
             <div class="top-fluid-container">
                 <form action="/employee/search" class="mb-0">
-                    <div class="row justify-content-center">
+                    <div class="row justify-content-center mb-2">
                         <div class="col-6 d-flex align-items-end">
                             <div class="flex-grow-1 me-2">
                                 <label for="firstNameId" class="form-label"></label>

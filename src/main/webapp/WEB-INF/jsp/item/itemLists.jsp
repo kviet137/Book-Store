@@ -2,11 +2,6 @@
 
 <jsp:include page="../include/header.jsp"/>
 
-<style>
-    .btn {
-        width: 120px;
-    }
-</style>
 
 <div class="container mt-4">
     <h2 class="mb-4">Products</h2>
@@ -16,8 +11,8 @@
                 <a href="/item/detail" class="text-primary text-decoration-none">Product 1</a>
                 <div class="d-flex flex-column">
                     <button class="btn btn-sm btn-outline-primary me-2" onclick="addToCart(1)">Add to Cart</button>
-                    <button class="btn btn-sm btn-outline-secondary me-2" onclick="addToFavorite(1)">Add to Favorite</button>
-                    <button class="btn btn-sm btn-outline-success" onclick="addToWishList(1)">Add to Wish List</button>
+                    <button class="btn btn-sm btn-outline-danger me-2" onclick="addToFavorite(1)">Add to Favorite</button>
+                    <button class="btn btn-sm btn-outline-warning me-2" onclick="addToWishList(1)">Add to Wish List</button>
                 </div>
             </div>
             <div class="mt-2">
@@ -31,8 +26,8 @@
                 <a href="/item/detail" class="text-primary text-decoration-none">Product 2</a>
                 <div class="d-flex flex-column">
                     <button class="btn btn-sm btn-outline-primary me-2" onclick="addToCart(2)">Add to Cart</button>
-                    <button class="btn btn-sm btn-outline-secondary me-2" onclick="addToFavorite(2)">Add to Favorite</button>
-                    <button class="btn btn-sm btn-outline-success" onclick="addToWishList(2)">Add to Wish List</button>
+                    <button class="btn btn-sm btn-outline-danger me-2" onclick="addToFavorite(2)">Add to Favorite</button>
+                    <button class="btn btn-sm btn-outline-warning me-2" onclick="addToWishList(2)">Add to Wish List</button>
                 </div>
             </div>
             <div class="mt-2">
