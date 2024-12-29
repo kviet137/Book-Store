@@ -3,6 +3,8 @@
 
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book World</title>
 
 
@@ -16,6 +18,7 @@
     <!-- jquery is always loaded at the top of the file because its needed by so many other libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link href="/pub/css/global.css" rel="stylesheet"/>
+
 </head>
 <body>
 <section>
@@ -33,7 +36,7 @@
                             <div class="flex-grow-1 me-2">
                                 <label for="firstNameId" class="form-label"></label>
                                 <input type="text" class="form-control" id="firstNameId" name="firstName"
-                                       placeholder="Search for books..." style="width: 650px;" value="${search}">
+                                       placeholder="Search for books..." style="width: 600px;" value="${search}">
                             </div>
                             <button type="submit" class="btn btn-primary align-self-end">Search</button>
                         </div>
