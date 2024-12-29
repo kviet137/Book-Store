@@ -26,8 +26,14 @@
     </table>
 
     <h3>Total: $20.99</h3>
-    <a href="/checkout" class="btn btn-primary">Proceed to Checkout</a>
+    <a href="/user/cart" class="btn btn-primary" onclick="addToCart(99)">Proceed to Checkout</a>
 </div>
+
+<script>
+    function addToCart(productId) {
+        alert('Product ' + productId + ' added to cart!');
+    }
+</script>
 
 
 <jsp:include page="../include/footer.jsp"/>
