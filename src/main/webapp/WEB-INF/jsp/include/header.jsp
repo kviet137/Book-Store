@@ -32,7 +32,8 @@
                         <div class="col-6 d-flex align-items-end">
                             <div class="flex-grow-1 me-2">
                                 <label for="firstNameId" class="form-label"></label>
-                                <input type="text" class="form-control" id="firstNameId" name="firstName" placeholder="Search for books..."  style="width: 650px;" value="${search}">
+                                <input type="text" class="form-control" id="firstNameId" name="firstName"
+                                       placeholder="Search for books..." style="width: 650px;" value="${search}">
                             </div>
                             <button type="submit" class="btn btn-primary align-self-end">Search</button>
                         </div>
@@ -40,12 +41,27 @@
                 </form>
             </div>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto" >
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item ms-auto">
-                        <a class="nav-link" href="/login/loginPage">Login</a>
+                        <a class="nav-link" href="/user/cart">Login</a>
+                    </li>
+
+                    <li class="nav-item ms-auto">
+                        <a class="nav-link" href="/item/detail">Item Detail</a>
                     </li>
                     <li class="nav-item ms-auto">
-                        <a class="nav-link" href="/customer/create">Cart</a>
+                        <a class="nav-link" href="/item/list">Item List</a>
+                    </li>
+
+
+                    <li class="nav-item ms-auto">
+                        <a class="nav-link" href="/user/history">History</a>
+                    </li>
+                    <li class="nav-item ms-auto">
+                        <a class="nav-link" href="/user/cart">Cart</a>
+                    </li>
+                    <li class="nav-item ms-auto">
+                        <a class="nav-link" href="/user/admin">Admin</a>
                     </li>
 
                 </ul>

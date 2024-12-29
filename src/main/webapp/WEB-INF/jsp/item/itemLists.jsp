@@ -1,46 +1,43 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<jsp:include page="..include/header.jsp"/>
+<jsp:include page="../include/header.jsp"/>
 
 
 
-<h1 class="text-center">Item List</h1>
 <div class="container mt-4">
-    <h2>Available Books</h2>
-
-    <!-- Filters -->
-    <div class="mb-4">
-        <label for="genre" class="form-label">Genre</label>
-        <select id="genre" class="form-select" aria-label="Filter by Genre">
-            <option value="">All Genres</option>
-            <option value="fiction">Fiction</option>
-            <option value="non-fiction">Non-fiction</option>
-        </select>
-
-        <label for="author" class="form-label">Author</label>
-        <select id="author" class="form-select" aria-label="Filter by Author">
-            <option value="">All Authors</option>
-            <option value="author1">Author 1</option>
-            <option value="author2">Author 2</option>
-        </select>
-    </div>
-
-    <!-- Book List -->
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card">
-                <img src="book-image.jpg" class="card-img-top" alt="Book Image">
-                <div class="card-body">
-                    <h5 class="card-title">Book Title</h5>
-                    <p class="card-text">By Author Name</p>
-                    <a href="/book/details/1" class="btn btn-primary">View Details</a>
-                </div>
+    <h2 class="mb-4">Products</h2>
+    <div class="list-group">
+        <div class="list-group-item d-flex justify-content-between align-items-center">
+            <a href="productDetail.jsp?productId=1" class="text-primary text-decoration-none">Product 1</a>
+            <div>
+                <button class="btn btn-sm btn-outline-primary me-2" onclick="addToCart(1)">Add to Cart</button>
+                <button class="btn btn-sm btn-outline-secondary me-2" onclick="addToFavorite(1)">Add to Favorite</button>
+                <button class="btn btn-sm btn-outline-success" onclick="addToWishList(1)">Add to Wish List</button>
             </div>
         </div>
-        <!-- Additional books can be displayed dynamically -->
+        <div class="list-group-item d-flex justify-content-between align-items-center">
+            <a href="productDetail.jsp?productId=2" class="text-primary text-decoration-none">Product 2</a>
+            <div>
+                <button class="btn btn-sm btn-outline-primary me-2" onclick="addToCart(2)">Add to Cart</button>
+                <button class="btn btn-sm btn-outline-secondary me-2" onclick="addToFavorite(2)">Add to Favorite</button>
+                <button class="btn btn-sm btn-outline-success" onclick="addToWishList(2)">Add to Wish List</button>
+            </div>
+        </div>
+        <!-- Add more products as needed -->
     </div>
 </div>
 
+<script>
+    function addToCart(productId) {
+        alert('Product ' + productId + ' added to cart!');
+    }
 
+    function addToFavorite(productId) {
+        alert('Product ' + productId + ' added to favorites!');
+    }
 
-<jsp:include page="..include/footer.jsp"/>
+    function addToWishList(productId) {
+        alert('Product ' + productId + ' added to wish list!');
+    }
+</script>
+<jsp:include page="../include/footer.jsp"/>

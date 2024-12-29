@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<jsp:include page="..include/header.jsp"/>
+<jsp:include page="../include/header.jsp"/>
 
 <h1 class="text-center">Item Details</h1>
 <div class="container mt-4">
@@ -14,4 +14,11 @@
 </div>
 
 
-<jsp:include page="..include/footer.jsp"/>
+
+
+
+
+
+
+
+<jsp:include page="../include/footer.jsp"/>
