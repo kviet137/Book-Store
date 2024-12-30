@@ -10,10 +10,10 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class bookDetailsController {
 
-    @GetMapping(value = "/item/detail")
-    public ModelAndView showItemDetails() {
+    @GetMapping(value = "/book/detail")
+    public ModelAndView showBookDetails() {
         ModelAndView response = new ModelAndView();
-        response.setViewName("bookDetails");
+        response.setViewName("book/bookDetails");
 
         return response;
     }

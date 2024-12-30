@@ -20,12 +20,12 @@ public class bookListsController {
     private BookDAO bookDAO;
 
     @GetMapping(value = "/book/list")
-    public ModelAndView showBookList(@RequestParam(required = false)String title) {
+    public ModelAndView showBookList(@RequestParam(required = false)String author) {
         ModelAndView response = new ModelAndView("book/bookLists");
 
-        response.addObject("title", title);
-        if (title != null) {
-            List<Book> books = bookDAO.findAllBooksByTitle(title);
+        response.addObject("title", author);
+        if (author != null) {
+            List<Book> books = bookDAO.findAllBooksByAuthor(author);
             response.addObject("booksKey", books);
         }
 
@@ -33,12 +33,12 @@ public class bookListsController {
     }
 
     @GetMapping(value = "/book/search")
-    public ModelAndView showSearchedBookList(@RequestParam(required = false)String title) {
+    public ModelAndView showSearchedBookList(@RequestParam(required = false)String author) {
         ModelAndView response = new ModelAndView("book/bookSearch");
 
-        response.addObject("title", title);
-        if (title != null) {
-            List<Book> books = bookDAO.findAllBooksByTitle(title);
+        response.addObject("author", author);
+        if (author != null) {
+            List<Book> books = bookDAO.findAllBooksByAuthor(author);
             response.addObject("booksKey", books);
         }
 
