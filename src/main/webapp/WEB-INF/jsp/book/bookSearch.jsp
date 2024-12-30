@@ -35,7 +35,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <a href="/book/detail" class="text-primary text-decoration-none">${book.title}</a>
           <div class="d-flex flex-column position-absolute top-0 end-0 p-2">
-            <button class="btn btn-sm btn-outline-primary mt-1 mb-1 me-2" onclick="addToCart(1)">Add to Cart</button>
+            <button class="btn btn-sm btn-outline-primary mt-0 mb-1 me-2" onclick="addToCart(1)">Add to Cart</button>
             <button class="btn btn-sm btn-outline-danger mt-1 mb-1 me-2" onclick="addToFavorite(1)">Add to Favorite</button>
             <button class="btn btn-sm btn-outline-warning mt-1 mb-1 me-2" onclick="addToWishList(1)">Add to Wish List</button>
           </div>
