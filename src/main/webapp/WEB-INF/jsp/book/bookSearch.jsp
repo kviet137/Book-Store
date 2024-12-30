@@ -28,7 +28,7 @@
 
 <c:if test="${not empty author}">
   <div class="container mt-4">
-    <h2 class="mb-4">Products</h2>
+    <h2 class="mb-4">Books Found (${booksKey.size()})</h2>
     <c:forEach var="book" items="${booksKey}">
     <div class="list-group">
       <div class="list-group-item">
@@ -43,7 +43,7 @@
         <div class="mt-2">
           <p class="mb-1"><strong>Genre: </strong> ${book.genre}</p>
           <p class="mb-1"><strong>Author: </strong> ${book.author}</p>
-          <p class="mb-1"><strong>Price: </strong>${book.price}</p>
+          <p class="mb-1"><strong>Price: </strong>$${book.price}</p>
           <p class="mb-1 me-5"><strong>Description: </strong>${book.description}</p>
         </div>
       </div>
@@ -104,5 +104,17 @@
     </div>
   </section>
 </c:if>
+<script>
+  function addToCart(productId) {
+    alert('Product ' + productId + ' added to cart!');
+  }
 
+  function addToFavorite(productId) {
+    alert('Product ' + productId + ' added to favorites!');
+  }
+
+  function addToWishList(productId) {
+    alert('Product ' + productId + ' added to wish list!');
+  }
+</script>
 <jsp:include page="../include/footer.jsp"/>
