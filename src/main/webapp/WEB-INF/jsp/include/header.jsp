@@ -19,18 +19,18 @@
 
 
             <!-- Search bar in the center -->
-            <form action="/index" class="d-flex mx-auto mb-0" role="search" style="width: 50%;">
-                <input class="form-control me-2" type="search" placeholder="Search for books..." aria-label="Search">
-                <button class="btn btn-primary" type="submit">Search</button>
+            <form action="/book/search" class="d-flex mx-auto mb-0" role="search" style="width: 55%;">
+                <input class="form-control me-2" type="text" placeholder="Search for books..." aria-label="Search" value="${title}">
+                <button class="btn btn-primary" type="submit" id="title" name="title">Search</button>
             </form>
 
             <!-- Login link on the right -->
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item ms-auto">
-                    <a class="nav-link" href="/user/cart">Login</a>
+                    <a class="nav-link" href="/book/search">Search</a>
                 </li>
                 <li class="nav-item ms-auto">
-                    <a class="nav-link" href="/item/list">Item List</a>
+                    <a class="nav-link" href="/book/list">Book List</a>
                 </li>
 
 

@@ -8,7 +8,7 @@
     <div class="list-group">
         <div class="list-group-item">
             <div class="d-flex justify-content-between align-items-center">
-                <a href="/item/detail" class="text-primary text-decoration-none">Product 1</a>
+                <a href="/book/detail" class="text-primary text-decoration-none">Product 1</a>
                 <div class="d-flex flex-column">
                     <button class="btn btn-sm btn-outline-primary me-2" onclick="addToCart(1)">Add to Cart</button>
                     <button class="btn btn-sm btn-outline-danger me-2" onclick="addToFavorite(1)">Add to Favorite</button>
@@ -23,7 +23,7 @@
         </div>
         <div class="list-group-item">
             <div class="d-flex justify-content-between align-items-center">
-                <a href="/item/detail" class="text-primary text-decoration-none">Product 2</a>
+                <a href="/book/detail" class="text-primary text-decoration-none">Product 2</a>
                 <div class="d-flex flex-column">
                     <button class="btn btn-sm btn-outline-primary me-2" onclick="addToCart(2)">Add to Cart</button>
                     <button class="btn btn-sm btn-outline-danger me-2" onclick="addToFavorite(2)">Add to Favorite</button>
@@ -39,6 +39,33 @@
         <!-- Add more products as needed -->
     </div>
 </div>
+
+<c:if test="${not empty title}">
+    <section class="bg-light2 pt-5 pb-5">
+        <div class="container">
+            <h2 class="text-center">Customers Found (${booksKey.size()})</h2>
+
+            <table class="table mt-5">
+                <tr>
+                    <th>Contact First Name</th>
+                    <th>Contact Last Name</th>
+                    <th>id</th>
+                    <th>Customer Name</th>
+                    <th>Edit</th>
+                </tr>
+                <c:forEach var="book" items="${booksKey}">
+                    <tr>
+                        <td>${book.author}</td>
+                        <td>${book.price}</td>
+                        <td>${book.description}</td>
+                        <td>${book.genre}</td>
+                        <td><a href="/customer/edit/${book.id}">Edit</a></td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
+    </section>
+</c:if>
 
 <script>
     function addToCart(productId) {

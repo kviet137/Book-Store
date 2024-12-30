@@ -8,12 +8,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Slf4j
 @Controller
-public class itemDetailsController {
+public class bookDetailsController {
 
     @GetMapping(value = "/item/detail")
     public ModelAndView showItemDetails() {
         ModelAndView response = new ModelAndView();
-        response.setViewName("item/itemDetails");
+        response.setViewName("bookDetails");
 
         return response;
     }

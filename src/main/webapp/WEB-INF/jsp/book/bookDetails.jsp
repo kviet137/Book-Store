@@ -2,7 +2,7 @@
 
 <jsp:include page="../include/header.jsp"/>
 
-<h1 class="text-center">Item Details</h1>
+<h1 class="text-center">Book Details</h1>
 <div class="container mt-4">
     <h2>Book Title</h2>
     <p><strong>Author:</strong> Author Name</p>

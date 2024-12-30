@@ -9,6 +9,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class userAdminController {
 
+
+
     @GetMapping(value = "/user/admin")
     public ModelAndView admin() {
         ModelAndView response = new ModelAndView();
