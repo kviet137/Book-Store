@@ -8,10 +8,18 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Slf4j
 @Controller
-public class userHistoryController {
+public class UserController {
+
+    @GetMapping(value = "/user/cart")
+    public ModelAndView showUserCart() {
+        ModelAndView response = new ModelAndView();
+        response.setViewName("user/userCart");
+
+        return response;
+    }
 
     @GetMapping(value = "/user/history")
-    public ModelAndView showItemDetails() {
+    public ModelAndView showUserHistory() {
         ModelAndView response = new ModelAndView();
         response.setViewName("user/userHistory");
 

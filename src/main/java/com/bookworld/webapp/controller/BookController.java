@@ -14,23 +14,21 @@ import java.util.List;
 
 @Slf4j
 @Controller
-public class bookListsController {
+public class BookController {
 
     @Autowired
-    private BookDAO bookDAO;
+    BookDAO bookDAO;
 
-    @GetMapping(value = "/book/list")
-    public ModelAndView showBookList(@RequestParam(required = false)String author) {
-        ModelAndView response = new ModelAndView("book/bookLists");
 
-        response.addObject("title", author);
-        if (author != null) {
-            List<Book> books = bookDAO.findAllBooksByAuthor(author);
-            response.addObject("booksKey", books);
-        }
+    @GetMapping(value = "/book/detail")
+    public ModelAndView showBookDetails() {
+        ModelAndView response = new ModelAndView();
+        response.setViewName("book/bookDetails");
 
         return response;
     }
+
+
 
     @GetMapping(value = "/book/search")
     public ModelAndView showSearchedBookList(@RequestParam(required = false)String author) {

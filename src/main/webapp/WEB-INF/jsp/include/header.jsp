@@ -19,21 +19,16 @@
 
 
             <!-- Search bar in the center -->
-            <form action="/book/search" class="d-flex mx-auto mb-0" role="search" style="width: 55%;">
-                <input class="form-control me-2" type="text" placeholder="Search for books..." aria-label="Search" value="${title}">
-                <button class="btn btn-primary" type="submit" id="title" name="title">Search</button>
+            <form action="/book/search" class="d-flex mx-auto ms-4 mb-0" role="search" style="width: 55%;">
+                <input class="form-control me-2" name="author" type="text" placeholder="Search for books..." aria-label="Search" value="${author}">
+                <button class="btn btn-primary" type="submit" >Search</button>
             </form>
         <div class="collapse navbar-collapse" id="navbarNav">
             <!-- Login link on the right -->
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item ms-auto">
-                    <a class="nav-link" href="/book/search">Search</a>
+                    <a class="nav-link" href="/book/search">Login</a>
                 </li>
-                <li class="nav-item ms-auto">
-                    <a class="nav-link" href="/book/list">Book List</a>
-                </li>
-
-
                 <li class="nav-item ms-auto">
                     <a class="nav-link" href="/user/history">History</a>
                 </li>
@@ -41,7 +36,7 @@
                     <a class="nav-link" href="/user/cart">Cart</a>
                 </li>
                 <li class="nav-item ms-auto">
-                    <a class="nav-link" href="/user/admin">Admin</a>
+                    <a class="nav-link" href="/admin/admin">Admin</a>
                 </li>
                 <li class="nav-item ms-auto">
                     <a class="nav-link" href="/ZT/ZT"> ztest</a>
