@@ -1,4 +1,4 @@
 package com.bookworld.webapp.security;
 
-public class AuthenticatedUserService {//00
+public class AuthenticatedUserService {
 }
