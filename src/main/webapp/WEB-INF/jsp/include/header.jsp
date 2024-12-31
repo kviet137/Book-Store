@@ -23,7 +23,7 @@
                 <input class="form-control me-2" type="text" placeholder="Search for books..." aria-label="Search" value="${title}">
                 <button class="btn btn-primary" type="submit" id="title" name="title">Search</button>
             </form>
-
+        <div class="collapse navbar-collapse" id="navbarNav">
             <!-- Login link on the right -->
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item ms-auto">
@@ -48,6 +48,7 @@
                 </li>
 
             </ul>
+        </div>
         </div>
 </nav>
 
