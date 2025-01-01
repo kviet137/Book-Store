@@ -26,7 +26,7 @@ public class SecurityConfig {
         http.authorizeRequests()
                 .requestMatchers(
                         new AntPathRequestMatcher("/admin/**"),
-                        new AntPathRequestMatcher("/user/**")).authenticated()
+                        new AntPathRequestMatcher("/user/history")).authenticated()
                 .anyRequest().permitAll();
 
         http.formLogin(formLogin -> formLogin
