@@ -24,14 +24,8 @@
                         <a class="nav-link" href="/user/cart">Need To</a>
                     </li>
                     <li class="nav-item ms-auto">
-                        <a class="nav-link" href="/book/list">Add/Edit User</a>
-                    </li>
-
-
-                    <li class="nav-item ms-auto">
                         <a class="nav-link" href="/user/history">Add/Edit Item</a>
                     </li>
-
                     <li class="nav-item ms-auto">
                         <a class="nav-link" href="/admin/admin">Admin</a>
                     </li>
