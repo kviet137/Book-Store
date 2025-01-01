@@ -1,7 +1,7 @@
 package com.bookworld.webapp.security;
 
 
-public class AuthenticatedUserService {//checking
+public class AuthenticatedUserService {
 
 
 }
