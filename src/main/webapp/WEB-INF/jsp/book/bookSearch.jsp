@@ -54,7 +54,7 @@
 
   <section class="bg-light2 pt-5 pb-5">
     <div class="container">
-      <h2 class="text-center">Customers Found (${booksKey.size()})</h2>
+      <h2 class="text-center">Related Books (${booksKey.size()})</h2>
 
       <table class="table mt-5">
         <tr>

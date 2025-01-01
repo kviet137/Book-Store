@@ -24,14 +24,8 @@
                         <a class="nav-link" href="/user/cart">Need To</a>
                     </li>
                     <li class="nav-item ms-auto">
-                        <a class="nav-link" href="/book/list">Add/Edit User</a>
-                    </li>
-
-
-                    <li class="nav-item ms-auto">
                         <a class="nav-link" href="/user/history">Add/Edit Item</a>
                     </li>
-
                     <li class="nav-item ms-auto">
                         <a class="nav-link" href="/admin/admin">Admin</a>
                     </li>
@@ -85,7 +79,7 @@
         </section>
 
         <section class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 mb-4">
                 <div class="card">
                     <div class="card-body">
                         <h3 class="card-title">Monthly Sales</h3>
@@ -106,18 +100,18 @@
                 </div>
             </div>
         </section>
-        <div class="container">
-            <div class="mt-5">
+        <section class="row">
+            <div class="mt-3">
                 <div>
-                    <div class="row">
-                        <h4 class="text-center">Order Transactions</h4>
-                        <form action="#" class="d-flex mx-auto mb-2" style="width: 60%"role="search">
+                    <div class="card">
+                        <h4 class="mt-3 ms-3">Order Transactions</h4>
+                        <form action="#" class="d-flex mt-3 ms-3 mb-4" style="width: 60%"role="search">
                             <input class="form-control me-2" type="text" placeholder="Search for order..."
                                    aria-label="Search" value="${order}">
                             <button class="btn btn-primary" type="submit" id="order" name="title">Search</button>
                         </form>
                         <table class="table table-striped">
-                            <thead>
+                            <thead class="table-primary">
                             <tr>
                                 <th>Order ID</th>
                                 <th>User</th>
@@ -132,18 +126,25 @@
                                 <td >example</td>
                                 <td >example</td>
                             </tr>
+                            <tr>
+                                <td >example</td>
+                                <td >example</td>
+                                <td >example</td>
+                                <td >example</td>
+                            </tr>
                             <!-- Order transactions will be listed here -->
                             </tbody>
                         </table>
                     </div>
-                    <h4 class="text-center" >Add/Edit Book</h4>
-                    <form action="#" class="d-flex mx-auto mb-2" style="width: 60%" role="search">
-                        <input class="form-control me-2" type="text" placeholder="Search for book..."
-                               aria-label="Search" value="${title}">
-                        <button class="btn btn-primary" type="submit" id="title" name="title">Search</button>
-                    </form>
-                    <table class="table table-striped">
-                        <thead>
+                    <div class="card mt-5">
+                    <h4 class="mt-3 ms-3" >Add/Edit Book</h4>
+                        <form action="#" class="d-flex mt-3 ms-3 mb-4" style="width: 60%;" role="search">
+                            <input class="form-control me-2" type="text" placeholder="Search for book..."
+                                   aria-label="Search" value="${title}">
+                            <button class="btn btn-primary" type="submit" id="title" name="title">Search</button>
+                        </form>
+                    <table class="table table-striped ">
+                        <thead class="table-primary">
                         <tr>
                             <th>Edit</th>
                             <th>Title</th>
@@ -169,9 +170,10 @@
                         <!-- Dynamic list of items will go here -->
                         </tbody>
                     </table>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
 </div>
 
