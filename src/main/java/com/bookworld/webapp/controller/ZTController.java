@@ -11,7 +11,7 @@ public class ZTController {
     @GetMapping(value = "/ZT/ZT")
     public ModelAndView Zt() {
         ModelAndView response = new ModelAndView();
-        response.setViewName("/ZT/ZT");
+        response.setViewName("ZT/ZT");
 
         return response;
     }
