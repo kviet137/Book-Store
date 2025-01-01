@@ -79,24 +79,31 @@
 <!-- JavaScript to update Change Location button text -->
 <script>
     document.getElementById("saveLocationBtn").addEventListener("click", function() {
-        // Get the value entered by the user
         var newLocation = document.getElementById("location").value;
 
-        // Check if the input is not empty
         if (newLocation.trim() !== "") {
-            // Update the "Change Location" button text with the new location
+            // Save location to local storage
+            localStorage.setItem("userLocation", newLocation);
+
+            // Update the button text
             document.getElementById("changeLocationBtn").textContent = "Location: " + newLocation;
 
-            // Close the modal after saving
+            // Close the modal
             var modal = bootstrap.Modal.getInstance(document.getElementById('locationModal'));
             modal.hide();
-
-            // Optionally, clear the input field after saving
-            document.getElementById("location").value = "";
         } else {
             alert("Please enter a location.");
         }
     });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const savedLocation = localStorage.getItem("userLocation");
+        if (savedLocation) {
+            document.getElementById("changeLocationBtn").textContent = "Location: " + savedLocation;
+        }
+    });
+
+
 </script>
 </body>
 </html>
