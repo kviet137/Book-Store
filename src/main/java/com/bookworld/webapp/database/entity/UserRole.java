@@ -9,21 +9,19 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@Table(name = "users")
-public class User {
+@Table(name = "user_roles")
+public class UserRole {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "username")
-    private String username;
+    @Column(name = "user_id")
+    private Integer userId;
 
-    @Column(name = "email")
-    private String email;
+    @Column(name = "role_name")
+    private String roleName;
 
-    @Column(name = "password")
-    private String password;
 
 }

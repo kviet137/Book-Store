@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
@@ -33,7 +34,10 @@
             <!-- Login link on the right -->
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item ms-auto">
-                    <a class="nav-link" href="/book/search">Login</a>
+                    <a class="nav-link" href="/login/login">Login</a>
+                </li>
+                <li class="nav-item ms-auto">
+                    <a class="nav-link" href="/login/signup">SignUp</a>
                 </li>
                 <li class="nav-item ms-auto">
                     <a class="nav-link" href="/user/history">History</a>
@@ -41,9 +45,20 @@
                 <li class="nav-item ms-auto">
                     <a class="nav-link" href="/user/cart">Cart</a>
                 </li>
+
                 <li class="nav-item ms-auto">
                     <a class="nav-link" href="/admin/admin">Admin</a>
                 </li>
+                <sec:authorize access="isAuthenticated()">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login/logout">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                            <span class="nav-link">Hello,
+                                <sec:authentication property="principal.username"/>
+                            </span>
+                    </li>
+                </sec:authorize>
                 <li class="nav-item ms-auto">
                     <a class="nav-link" href="/ZT/ZT">ztest</a>
                 </li>
