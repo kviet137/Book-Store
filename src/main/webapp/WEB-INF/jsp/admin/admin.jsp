@@ -42,6 +42,7 @@
     <div class="bg-dark text-white p-3">
         <h3 class="text-center">Admin</h3>
         <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="/book/create" class="nav-link text-white">Dashboard</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link text-white">Dashboard</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link text-white">Analytics</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link text-white">Settings</a></li>
@@ -66,8 +67,8 @@
                         <table class="table table-striped">
                             <thead class="table-primary">
                             <tr>
-                                <th>Order ID</th>
                                 <th>User</th>
+                                <th>Order ID</th>
                                 <th>Order Date</th>
                                 <th>Total Amount</th>
                             </tr>

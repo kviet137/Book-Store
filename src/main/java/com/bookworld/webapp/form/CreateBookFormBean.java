@@ -2,8 +2,14 @@ package com.bookworld.webapp.form;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.validator.constraints.Length;
 
+@Getter
+@Setter
+@ToString
 public class CreateBookFormBean {
 
     private Integer id;
