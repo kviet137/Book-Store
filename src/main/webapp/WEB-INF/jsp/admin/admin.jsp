@@ -39,7 +39,7 @@
 </section>
 <div class="d-flex flex-grow-1">
     <!-- Sidebar -->
-    <div class="bg-dark text-white p-3">
+    <div class="bg-dark text-white p-3 ">
         <h3 class="text-center">Admin</h3>
         <ul class="nav flex-column">
             <li class="nav-item mb-2"><a href="/book/create" class="nav-link text-white">Add New Book</a></li>
@@ -51,48 +51,12 @@
     <div class="flex-fill p-4">
         <header class="d-flex justify-content-between align-items-center mb-4">
             <h2>Dashboard</h2>
-
         </header>
-
         <section class="row">
             <div >
                 <div>
                     <div class="card">
-                        <h4 class="mt-3 ms-3">Order Transactions</h4>
-                        <form action="#" class="d-flex mt-3 ms-3 mb-4" style="width: 60%" role="search">
-                            <input class="form-control me-2" type="text" placeholder="Search for order..."
-                                   aria-label="Search" value="${order}">
-                            <button class="btn btn-primary" type="submit" id="order" name="title">Search</button>
-                        </form>
-                        <table class="table table-striped">
-                            <thead class="table-primary">
-                            <tr>
-                                <th>User</th>
-                                <th>Order ID</th>
-                                <th>Order Date</th>
-                                <th>Total Amount</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>example</td>
-                                <td>example</td>
-                                <td>example</td>
-                                <td>example</td>
-                            </tr>
-                            <tr>
-                                <td>example</td>
-                                <td>example</td>
-                                <td>example</td>
-                                <td>example</td>
-                            </tr>
-                            <!-- Order transactions will be listed here -->
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="card mt-5">
-                        <h4 class="mt-3 ms-3">Add/Edit Book</h4>
+                        <h4 class="mt-3 ms-3">Search/Edit Book</h4>
                         <form action="/admin/search" class="d-flex mt-3 ms-3 mb-4" style="width: 60%;" role="search">
                             <input class="form-control me-2" type="text" placeholder="Search for book..."
                                    aria-label="Search" id="author" name="author" value="${author}">
@@ -126,6 +90,40 @@
                                 </tbody>
                             </table>
                         </c:if>
+                    </div>
+
+                    <div class="card mt-5">
+                        <h4 class="mt-3 ms-3">Order Transactions</h4>
+                        <form action="#" class="d-flex mt-3 ms-3 mb-4" style="width: 60%" role="search">
+                            <input class="form-control me-2" type="text" placeholder="Search for order..."
+                                   aria-label="Search" value="${order}">
+                            <button class="btn btn-primary" type="submit" id="order" name="title">Search</button>
+                        </form>
+                        <table class="table table-striped">
+                            <thead class="table-primary">
+                            <tr>
+                                <th>User</th>
+                                <th>Order ID</th>
+                                <th>Order Date</th>
+                                <th>Total Amount</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>example</td>
+                                <td>example</td>
+                                <td>example</td>
+                                <td>example</td>
+                            </tr>
+                            <tr>
+                                <td>example</td>
+                                <td>example</td>
+                                <td>example</td>
+                                <td>example</td>
+                            </tr>
+                            <!-- Order transactions will be listed here -->
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
