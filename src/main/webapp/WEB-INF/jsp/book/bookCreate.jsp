@@ -5,7 +5,7 @@
 <section class="bg-light1 pt-5 pb-5">
     <div class="container">
         <div class="row">
-            <h1 class ="m-9 text-center"> Create Book</h1>
+            <h1 class ="m-9 text-center">Add New Book</h1>
         </div>
     </div>
 </section>
