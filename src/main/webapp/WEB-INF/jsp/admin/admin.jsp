@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,7 +53,87 @@
 
         </header>
 
-        <section class="row mb-4">
+        <section class="row">
+            <div >
+                <div>
+                    <div class="card">
+                        <h4 class="mt-3 ms-3">Order Transactions</h4>
+                        <form action="#" class="d-flex mt-3 ms-3 mb-4" style="width: 60%" role="search">
+                            <input class="form-control me-2" type="text" placeholder="Search for order..."
+                                   aria-label="Search" value="${order}">
+                            <button class="btn btn-primary" type="submit" id="order" name="title">Search</button>
+                        </form>
+                        <table class="table table-striped">
+                            <thead class="table-primary">
+                            <tr>
+                                <th>Order ID</th>
+                                <th>User</th>
+                                <th>Order Date</th>
+                                <th>Total Amount</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>example</td>
+                                <td>example</td>
+                                <td>example</td>
+                                <td>example</td>
+                            </tr>
+                            <tr>
+                                <td>example</td>
+                                <td>example</td>
+                                <td>example</td>
+                                <td>example</td>
+                            </tr>
+                            <!-- Order transactions will be listed here -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="card mt-5">
+                        <h4 class="mt-3 ms-3">Add/Edit Book</h4>
+                        <form action="/admin/search" class="d-flex mt-3 ms-3 mb-4" style="width: 60%;" role="search">
+                            <input class="form-control me-2" type="text" placeholder="Search for book..."
+                                   aria-label="Search" id="author" name="author" value="${author}">
+                            <button class="btn btn-primary" type="submit">Search</button>
+                        </form>
+                        <c:if test="${not empty author}">
+                            <table class="table table-striped ">
+                                <thead class="table-primary">
+                                <tr>
+                                    <th>Edit</th>
+                                    <th>Title</th>
+                                    <th>Author</th>
+                                    <th>Price</th>
+                                    <th>Genre</th>
+                                    <th>Description</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <c:forEach var="book" items="${booksKey}">
+                                    <tr>
+                                        <td><a href="#">Edit</a></td>
+                                        <td>${book.title}</td>
+                                        <td>${book.author}</td>
+                                        <td>${book.price}</td>
+                                        <td>${book.genre}</td>
+                                        <td>${book.description}</td>
+                                    </tr>
+                                </c:forEach>
+                                <!-- Dynamic list of items will go here -->
+                                </tbody>
+                            </table>
+                        </c:if>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <section class="row mb-4 mt-4">
             <div class="col-md-4">
                 <div class="card text-center">
                     <div class="card-body">
@@ -100,80 +182,7 @@
                 </div>
             </div>
         </section>
-        <section class="row">
-            <div class="mt-3">
-                <div>
-                    <div class="card">
-                        <h4 class="mt-3 ms-3">Order Transactions</h4>
-                        <form action="#" class="d-flex mt-3 ms-3 mb-4" style="width: 60%"role="search">
-                            <input class="form-control me-2" type="text" placeholder="Search for order..."
-                                   aria-label="Search" value="${order}">
-                            <button class="btn btn-primary" type="submit" id="order" name="title">Search</button>
-                        </form>
-                        <table class="table table-striped">
-                            <thead class="table-primary">
-                            <tr>
-                                <th>Order ID</th>
-                                <th>User</th>
-                                <th>Order Date</th>
-                                <th>Total Amount</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td >example</td>
-                                <td >example</td>
-                                <td >example</td>
-                                <td >example</td>
-                            </tr>
-                            <tr>
-                                <td >example</td>
-                                <td >example</td>
-                                <td >example</td>
-                                <td >example</td>
-                            </tr>
-                            <!-- Order transactions will be listed here -->
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="card mt-5">
-                    <h4 class="mt-3 ms-3" >Add/Edit Book</h4>
-                        <form action="#" class="d-flex mt-3 ms-3 mb-4" style="width: 60%;" role="search">
-                            <input class="form-control me-2" type="text" placeholder="Search for book..."
-                                   aria-label="Search" value="${title}">
-                            <button class="btn btn-primary" type="submit" id="title" name="title">Search</button>
-                        </form>
-                    <table class="table table-striped ">
-                        <thead class="table-primary">
-                        <tr>
-                            <th>Edit</th>
-                            <th>Title</th>
-                            <th>Author</th>
-                            <th>Price</th>
-                            <th>Genre</th>
-                            <th>Description</th>
 
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td><a href="#">Edit</a></td>
-                            <td>Example</td>
-                            <td>Example</td>
-                            <td>Example</td>
-                            <td>Example</td>
-                            <td>
-                                ExampleExampleExampleExampleExampleExampleExampleExampleExampleExampleExampleExampleExampleExampleExample
-                            </td>
-
-                        </tr>
-                        <!-- Dynamic list of items will go here -->
-                        </tbody>
-                    </table>
-                    </div>
-                </div>
-            </div>
-        </section>
     </div>
 </div>
 
