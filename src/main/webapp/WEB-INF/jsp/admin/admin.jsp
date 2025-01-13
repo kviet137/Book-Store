@@ -68,6 +68,7 @@
                                 <tr>
                                     <th>Edit</th>
                                     <th>Title</th>
+                                    <th>Image</th>
                                     <th>Author</th>
                                     <th>Price</th>
                                     <th>Genre</th>
@@ -80,6 +81,7 @@
                                     <tr>
                                         <td><a href="#">Edit</a></td>
                                         <td>${book.title}</td>
+                                        <td>Image</td>
                                         <td>${book.author}</td>
                                         <td>${book.price}</td>
                                         <td>${book.genre}</td>
