@@ -48,7 +48,6 @@
         </div>
       </div>
       </c:forEach>
-      <!-- Add more products as needed -->
     </div>
   </div>
 
@@ -59,10 +58,10 @@
       <table class="table mt-5">
         <tr>
           <th>Author</th>
-          <th>Price</th>
+          <th>Price1</th>
           <th>Genre</th>
           <th>Description</th>
-          <th>Edit</th>
+
         </tr>
         <c:forEach var="book" items="${booksKey}">
           <tr>
@@ -70,7 +69,7 @@
             <td>${book.price}</td>
             <td>${book.genre}</td>
             <td>${book.description}</td>
-            <td><a href="/customer/edit/${book.id}">Edit</a></td>
+
           </tr>
         </c:forEach>
       </table>
@@ -89,7 +88,7 @@
           <th>Price</th>
           <th>Genre</th>
           <th>Description</th>
-          <th>Edit</th>
+
         </tr>
         <c:forEach var="book" items="${booksKey}">
           <tr>
@@ -97,7 +96,7 @@
             <td>${book.price}</td>
             <td>${book.genre}</td>
             <td>${book.description}</td>
-            <td><a href="/customer/edit/${book.id}">Edit</a></td>
+
           </tr>
         </c:forEach>
       </table>

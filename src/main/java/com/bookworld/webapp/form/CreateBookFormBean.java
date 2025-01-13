@@ -32,4 +32,6 @@ public class CreateBookFormBean {
 
     @Length(max = 5000)
     private String description;
+
+    private String image;
 }

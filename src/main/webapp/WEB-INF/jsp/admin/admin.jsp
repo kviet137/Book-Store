@@ -79,7 +79,7 @@
                                 <tbody>
                                 <c:forEach var="book" items="${booksKey}">
                                     <tr>
-                                        <td><a href="#">Edit</a></td>
+                                        <td><a href="/book/edit/${book.id}">Edit</a></td>
                                         <td>${book.title}</td>
                                         <td>Image</td>
                                         <td>${book.author}</td>

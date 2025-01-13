@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -49,7 +50,7 @@ public class BookController {
     }
 
     @GetMapping("/book/create")
-    public ModelAndView createCustomer() {
+    public ModelAndView createBook() {
         ModelAndView response = new ModelAndView();
 
         response.setViewName("book/bookCreate");
@@ -58,7 +59,7 @@ public class BookController {
     }
 
     @PostMapping("/book/createBook")
-    public ModelAndView createCustomerSubmit(@Valid CreateBookFormBean form, BindingResult bindingResult) throws Exception {
+    public ModelAndView createBookSubmit(@Valid CreateBookFormBean form, BindingResult bindingResult) throws Exception {
         ModelAndView response = new ModelAndView();
 
         response.setViewName("book/bookCreate");
@@ -72,10 +73,11 @@ public class BookController {
             response.addObject("form", form);
         }
         else{
-            Book book = bookDAO.findBookByTitle(form.getTitle());
+            Book book = bookDAO.findBookById(form.getId());
             if (book == null) {
                 book = new Book();
             }
+
             book.setTitle(form.getTitle());
             book.setAuthor(form.getAuthor());
             book.setPrice(form.getPrice());
@@ -89,4 +91,26 @@ public class BookController {
 
         return response;
     }
+
+    @GetMapping("/book/edit/{bookId}")
+    public ModelAndView editBook(@PathVariable Integer bookId) {
+        ModelAndView response = new ModelAndView();
+
+        response.setViewName("book/bookCreate");
+        Book book = bookDAO.findBookById(bookId);
+        CreateBookFormBean form = new CreateBookFormBean();
+
+        form.setId(book.getId());
+        form.setTitle(book.getTitle());
+        form.setAuthor(book.getAuthor());
+        form.setPrice(book.getPrice());
+        form.setGenre(book.getGenre());
+        form.setDescription(book.getDescription());
+
+        response.addObject("form", form);
+
+        return response;
+    }
+
+
 }
