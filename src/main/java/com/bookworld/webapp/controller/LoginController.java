@@ -34,7 +34,7 @@ public class LoginController {
 
     //the mapping need to match the spring security config .. .loginPage method
     @GetMapping("/login/login")
-    public ModelAndView createCustomer() {
+    public ModelAndView login() {
         ModelAndView response = new ModelAndView();
 
         response.setViewName("login/loginPage");
@@ -62,7 +62,7 @@ public class LoginController {
             response.addObject("form", form);
         } else{
             User user = new User();
-            user.setUsername(form.getUsername());
+
             user.setEmail(form.getEmail());
 
             String encryptedPassword = passwordEncoder.encode(form.getPassword());

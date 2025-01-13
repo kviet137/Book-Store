@@ -28,7 +28,7 @@
         <!-- name of the password fields MUST BE password -->
         <form action="/login/loginSubmit" method="post">
             <div class="mt-3 row justify-content-center">
-                <label for="username" class="col-sm-2 col-form-label">Username</label>
+                <label for="username" class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-10 col-lg-6">
                     <input type="text" class="form-control" id="username" name="username" value="">
                 </div>
