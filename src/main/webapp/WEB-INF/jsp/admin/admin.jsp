@@ -58,11 +58,11 @@
                     <div class="card">
                         <h4 class="mt-3 ms-3">Search/Edit Book</h4>
                         <form action="/admin/search" class="d-flex mt-3 ms-3 mb-4" style="width: 60%;" role="search">
-                            <input class="form-control me-2" type="text" placeholder="Search for book..."
-                                   aria-label="Search" id="author" name="author" value="${author}">
+                            <input class="form-control me-2" type="text" placeholder="Search for Books..."
+                                   aria-label="Search" id="title" name="title" value="${title}">
                             <button class="btn btn-primary" type="submit">Search</button>
                         </form>
-                        <c:if test="${not empty author}">
+                        <c:if test="${not empty title}">
                             <table class="table table-striped ">
                                 <thead class="table-primary">
                                 <tr>
