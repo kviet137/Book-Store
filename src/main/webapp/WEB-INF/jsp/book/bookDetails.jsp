@@ -2,17 +2,19 @@
 
 <jsp:include page="../include/header.jsp"/>
 
+<c:if test="${not empty book}">
 <h1 class="text-center">Book Details</h1>
 <div class="container mt-4">
-    <h2>Book Title</h2>
-    <p><strong>Author:</strong> Author Name</p>
-    <p><strong>Genre:</strong> Genre</p>
-    <p><strong>Description:</strong> This is a detailed description of the book.</p>
-    <p><strong>Price:</strong> $20.99</p>
+    <h2>${book.title}</h2>
+    <p><strong>Author:</strong> ${book.author}</p>
+    <p><strong>Genre:</strong> ${book.genre}</p>
+    <p><strong>Description:</strong> ${book.description}</p>
+    <p><strong>Price:</strong> $${book.price}</p>
 
     <button class="btn btn-sm btn-outline-primary me-2" onclick="addToCart(1)">Add to Cart</button>
 
 </div>
+</c:if>
 
 
 <script>

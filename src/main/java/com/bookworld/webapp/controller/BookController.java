@@ -26,10 +26,14 @@ public class BookController {
     BookDAO bookDAO;
 
 
-    @GetMapping(value = "/book/detail")
-    public ModelAndView showBookDetails() {
+    @GetMapping(value = "/book/detail/{bookId}")
+    public ModelAndView showBookDetails(@PathVariable Integer bookId) {
         ModelAndView response = new ModelAndView();
+
         response.setViewName("book/bookDetails");
+        Book book = bookDAO.findBookById(bookId);
+        response.addObject("book", book);
+
 
         return response;
     }
