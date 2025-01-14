@@ -28,12 +28,12 @@ public class AdminController {
 
 
     @GetMapping(value = "/admin/search")
-    public ModelAndView showSearchedBookList(@RequestParam(required = false)String title) {
+    public ModelAndView showSearchedBookList(@RequestParam(required = false)String bookTitle) {
         ModelAndView response = new ModelAndView("admin/admin");
 
-        response.addObject("title", title);
-        if (title != null) {
-            List<Book> books = bookDAO.findByTitleIgnoreCaseContaining(title);
+        response.addObject("bookTitle", bookTitle);
+        if (bookTitle != null) {
+            List<Book> books = bookDAO.findByTitleIgnoreCaseContaining(bookTitle);
             response.addObject("booksKey", books);
         }
 

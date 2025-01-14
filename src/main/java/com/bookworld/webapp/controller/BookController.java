@@ -37,12 +37,12 @@ public class BookController {
 
 
     @GetMapping(value = "/book/search")
-    public ModelAndView showSearchedBookList(@RequestParam(required = false)String title) {
+    public ModelAndView showSearchedBookList(@RequestParam(required = false)String bookTitle) {
         ModelAndView response = new ModelAndView("book/bookSearch");
 
-        response.addObject("title", title);
-        if (title != null) {
-            List<Book> books = bookDAO.findByTitleIgnoreCaseContaining(title);
+        response.addObject("bookTitle", bookTitle);
+        if (bookTitle != null) {
+            List<Book> books = bookDAO.findByTitleIgnoreCaseContaining(bookTitle);
             response.addObject("booksKey", books);
         }
 
