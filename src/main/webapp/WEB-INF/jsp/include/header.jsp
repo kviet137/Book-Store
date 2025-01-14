@@ -26,7 +26,7 @@
 
         <!-- Search bar in the center -->
         <form action="/book/search" class="d-flex mx-auto ms-4 mb-0" role="search" style="width: 55%;">
-            <input class="form-control me-2" name="author" type="text" placeholder="Search for books..." aria-label="Search" value="${author}">
+            <input class="form-control me-2" name="title" type="text" placeholder="Search for Books..." aria-label="Search" value="${title}">
             <button class="btn btn-primary" type="submit">Search</button>
         </form>
 

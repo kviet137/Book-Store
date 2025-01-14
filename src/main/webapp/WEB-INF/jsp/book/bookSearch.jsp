@@ -12,8 +12,8 @@
       <div class="row justify-content-center">
         <div class="col-6">
           <div class="mb-3">
-            <label for="author" class="form-label">Search by Author</label>
-            <input type="text" class="form-control" id="author" name="author" placeholder="Enter Author's name" value="${author}">
+            <label for="title" class="form-label">Search</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="Search for Books..." value="${title}">
           </div>
         </div>
       </div>
@@ -26,7 +26,7 @@
   </div>
 </section>
 
-<c:if test="${not empty author}">
+<c:if test="${not empty title}">
   <div class="container mt-4">
     <h2 class="mb-4">Books Found (${booksKey.size()})</h2>
     <c:forEach var="book" items="${booksKey}">
