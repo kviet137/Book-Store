@@ -8,8 +8,8 @@
     <h2>${book.title}</h2>
     <p><strong>Author:</strong> ${book.author}</p>
     <p><strong>Genre:</strong> ${book.genre}</p>
-    <p><strong>Description:</strong> ${book.description}</p>
     <p><strong>Price:</strong> $${book.price}</p>
+    <p><strong>Description:</strong> ${book.description}</p>
 
     <button class="btn btn-sm btn-outline-primary me-2" onclick="addToCart(1)">Add to Cart</button>
 

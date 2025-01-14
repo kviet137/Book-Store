@@ -3,8 +3,6 @@
 <jsp:include page="../include/header.jsp"/>
 
 
-
-
 <h1 class="text-center">Search for Books</h1>
 <section class="bg-light1 pt-5 pb-5">
   <div class="container">
