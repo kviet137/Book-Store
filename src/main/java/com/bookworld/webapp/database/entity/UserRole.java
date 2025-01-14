@@ -1,15 +1,15 @@
 package com.bookworld.webapp.database.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 @Entity
 @Getter
 @Setter
 @ToString
 @Table(name = "user_roles")
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserRole {
 
     @Id
@@ -17,7 +17,12 @@ public class UserRole {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "user_id")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user_id", nullable = false)
+    @ToString.Exclude
+    private User user;
+
+    @Column(name = "user_id",insertable=false, updatable=false)
     private Integer userId;
 
     @Column(name = "role_name")

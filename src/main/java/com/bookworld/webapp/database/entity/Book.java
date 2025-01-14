@@ -4,6 +4,8 @@ package com.bookworld.webapp.database.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @ToString
@@ -18,6 +20,10 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
+
+    @OneToMany(mappedBy = "book", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ToString.Exclude
+    private List<OrderDetail> orderDetails;
 
     @Column(name = "title")
     private String title;
