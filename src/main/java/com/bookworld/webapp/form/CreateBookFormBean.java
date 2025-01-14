@@ -34,5 +34,5 @@ public class CreateBookFormBean {
     private String description;
 
     private String image;
-    //need to implement
+    //need to implement!
 }
