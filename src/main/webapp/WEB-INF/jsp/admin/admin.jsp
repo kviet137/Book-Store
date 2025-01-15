@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,17 +21,18 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item ms-auto">
-                        <a class="nav-link" href="/user/cart">Login</a>
-                    </li>
-                    <li class="nav-item ms-auto">
-                        <a class="nav-link" href="/user/cart">Need To</a>
-                    </li>
-                    <li class="nav-item ms-auto">
-                        <a class="nav-link" href="/user/history">Add/Edit Item</a>
-                    </li>
-                    <li class="nav-item ms-auto">
                         <a class="nav-link" href="/admin/admin">Admin</a>
                     </li>
+                    <sec:authorize access="isAuthenticated()">
+                        <li class="nav-item">
+                            <span class="nav-link">Hello,
+                                <sec:authentication property="principal.username"/>
+                            </span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login/logout">Logout</a>
+                        </li>
+                    </sec:authorize>
 
                 </ul>
             </div>
