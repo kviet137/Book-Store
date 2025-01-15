@@ -7,14 +7,19 @@ import com.bookworld.webapp.database.dao.OrderDetailDAO;
 import com.bookworld.webapp.database.entity.Book;
 import com.bookworld.webapp.database.entity.Order;
 import com.bookworld.webapp.database.entity.OrderDetail;
+import com.bookworld.webapp.database.entity.User;
+import com.bookworld.webapp.security.AuthenticatedUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Optional;
 
@@ -30,11 +35,13 @@ public class UserController {
 
     @Autowired
     private OrderDetailDAO orderDetailDAO;
+    @Autowired
+    private AuthenticatedUserService authenticatedUserService;
 
     @GetMapping(value = "/user/cart")
     public ModelAndView showUserCart() {
         ModelAndView response = new ModelAndView();
-        response.setViewName("cart");
+        response.setViewName("user/cart");
 
         return response;
     }
@@ -42,66 +49,85 @@ public class UserController {
     @GetMapping(value = "/user/history")
     public ModelAndView showUserHistory() {
         ModelAndView response = new ModelAndView();
-        response.setViewName("history");
+        response.setViewName("user/history");
 
         return response;
     }
 
 
 
-    @PostMapping("/cart/add")
-    public ModelAndView addToCart(@RequestParam Integer bookId, @RequestParam Integer userId, @RequestParam Integer quantity) {
-        ModelAndView response = new ModelAndView("redirect:/user/userCart");
+    @GetMapping("/cart/add/{bookId}")
+    public ModelAndView addToCart(@PathVariable Integer bookId) {
 
-        // Fetch the book
-        Book book = bookDAO.findBookById(bookId);
-        if (book == null) {
-            response.addObject("error", "Book not found");
+        ModelAndView response = new ModelAndView();
+        response.setViewName("user/cart");
+
+        if (bookId == null || bookId < 0) {
+            response.setViewName("redirect:/error/500");
             return response;
         }
 
-        // Fetch or create the user's cart (order)
-        Order order = orderDAO.findActiveOrderByUserId(userId);
+        User user = authenticatedUserService.loadCurrentUser();
+        if (user == null) {
+            // If user is not authenticated, redirect to login page or show error message
+            response.setViewName("redirect:/login/login");  // Or your login URL
+            return response;
+        }
+        Integer userId = user.getId();
+
+        Book book = bookDAO.findBookById(bookId);
+
+        Order order = orderDAO.findOrderByUserIdAndStatus(userId,"active");
         if (order == null) {
             order = new Order();
-            order.setUserId(userId);
-            order.setOrderDate(new Date());
-            order.setTotalAmount(0); // Set to 0 initially, calculate later
+            order.setUser(user);
+            order.setStatus("active");
+            Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+            order.setOrderDate(currentTime);
+            order.setTotalAmount(book.getPrice());
             orderDAO.save(order);
+
         }
 
-        // Check if the book is already in the cart
-        Optional<OrderDetail> existingDetail = order.getOrderDetails().stream()
-                .filter(detail -> detail.getBookId().equals(bookId))
-                .findFirst();
 
-        if (existingDetail.isPresent()) {
-            OrderDetail detail = existingDetail.get();
-            detail.setQuantity(detail.getQuantity() + quantity);
-            orderDetailDAO.save(detail);
-        } else {
-            OrderDetail detail = new OrderDetail();
-            detail.setOrder(order);
-            detail.setBook(book);
-            detail.setQuantity(quantity);
-            orderDetailDAO.save(detail);
+        OrderDetail orderDetail = orderDetailDAO.findOrderDetailByBookIdAndOrderId(book.getId(),order.getId());
+        if (orderDetail == null) {
+            orderDetail = new OrderDetail();
+            orderDetail.setOrder(order);
+            orderDetail.setBook(book);
+            orderDetail.setQuantity(1);
+
+        }else{
+            orderDetail.setQuantity(orderDetail.getQuantity()+1);
         }
+        orderDetailDAO.save(orderDetail);
+        response.addObject("orderDetail", orderDetail);
 
-        // Update order total amount
-//        int totalAmount = order.getOrderDetails().stream()
-//                .mapToInt(detail -> detail.getBook().getPrice() * detail.getQuantity())
-//                .sum();
-//        order.setTotalAmount(totalAmount);
-        orderDAO.save(order);
-
+        response.setViewName("redirect:/user/cart");
         return response;
     }
 
-    @GetMapping("/cart/view")
-    public ModelAndView viewCart(@RequestParam Integer userId) {
-        ModelAndView response = new ModelAndView("cart/view");
-        Order order = orderDAO.findActiveOrderByUserId(userId);
-        response.addObject("order", order);
-        return response;
-    }
+//    @PostMapping("/cart/remove")
+//    public String removeFromCart(@RequestParam Integer orderDetailId, @RequestParam Integer userId, RedirectAttributes redirectAttributes) {
+//        Integer orderDetail = orderDetailDAO.findById(orderDetailId);
+//        if (orderDetail != null) {
+//            orderDetailDAO.deleteById(orderDetail);
+//        }
+//
+//        // Fetch the updated cart
+//        Order order = orderDAO.findActiveOrderByUserId(userId);
+//        redirectAttributes.addFlashAttribute("order", order);
+//
+//        return "redirect:/cart/view?userId=" + userId;
+//    }
+
+
+
+//    @GetMapping("/cart/view")
+//    public ModelAndView viewCart(@RequestParam Integer userId) {
+//        ModelAndView response = new ModelAndView("user/cart");
+//        Order order = orderDAO.findActiveOrderByUserId(userId);
+//        response.addObject("order", order);
+//        return response;
+//    }
 }

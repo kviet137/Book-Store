@@ -7,33 +7,40 @@
 <div class="container mt-4">
     <h2>Your Cart</h2>
 
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Item</th>
-            <th>Price</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>Book Title</td>
-            <td>$20.99</td>
-            <td><button class="btn btn-danger btn-sm">Remove</button></td>
-        </tr>
-        <!-- Additional cart items can be listed here -->
-        </tbody>
-    </table>
+    <c:if test="${not empty order}">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach var="detail" items="${order.orderDetails}">
+                <tr>
+                    <td>${detail.book.title}</td>
+                    <td>$${detail.book.price}</td>
+                    <td>${detail.quantity}</td> <!-- Show quantity -->
+                    <td>
+                        <!-- Remove Item Button -->
+                        <form action="/cart/remove" method="post">
+                            <input type="hidden" name="orderDetailId" value="${detail.id}">
+                            <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
 
-    <h3>Total: $20.99</h3>
-    <a href="/user/cart" class="btn btn-primary" onclick="addToCart(99)">Proceed to Checkout</a>
+        <!-- Total Amount -->
+<%--        <h3>Total: $${order.totalAmount}</h3>--%>
+    </c:if>
+
+    <!-- Proceed to Checkout Button -->
+    <a href="/checkout" class="btn btn-primary">Proceed to Checkout</a>
 </div>
-
-<script>
-    function addToCart(productId) {
-        alert('Product ' + productId + ' added to cart!');
-    }
-</script>
-
 
 <jsp:include page="../include/footer.jsp"/>

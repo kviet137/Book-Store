@@ -8,5 +8,10 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface OrderDetailDAO extends JpaRepository<OrderDetail, Long> {
+    
+    Integer findById(Integer id);
 
+    OrderDetail findOrderDetailByBookIdAndOrderId(Integer bookId, Integer orderId);
+
+    void deleteById(Integer id);
 }
