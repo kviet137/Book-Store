@@ -77,14 +77,13 @@ public class UserController {
 
         Book book = bookDAO.findBookById(bookId);
 
-        Order order = orderDAO.findOrderByUserIdAndStatus(userId,"active");
+        Order order = orderDAO.findOrderByUserIdAndStatus(userId,"cart");
         if (order == null) {
             order = new Order();
             order.setUser(user);
-            order.setStatus("active");
+            order.setStatus("cart");
             Timestamp currentTime = new Timestamp(System.currentTimeMillis());
             order.setOrderDate(currentTime);
-            order.setTotalAmount(book.getPrice());
             orderDAO.save(order);
 
         }
@@ -96,6 +95,7 @@ public class UserController {
             orderDetail.setOrder(order);
             orderDetail.setBook(book);
             orderDetail.setQuantity(1);
+            //need to set total amount
 
         }else{
             orderDetail.setQuantity(orderDetail.getQuantity()+1);

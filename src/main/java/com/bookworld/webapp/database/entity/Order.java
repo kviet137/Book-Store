@@ -35,9 +35,6 @@ public class Order {
     @Column(name = "order_date", columnDefinition = "DATE")
     private Date orderDate;
 
-    @Column(name = "total_amount", columnDefinition = "DECIMAL")
-    private Double totalAmount;
-
     @Column(name = "status")
     private String status;
 

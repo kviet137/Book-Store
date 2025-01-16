@@ -38,4 +38,7 @@ public class OrderDetail {
     @Column(name = "quantity")
     private Integer quantity;
 
+    @Column(name = "total_amount", columnDefinition = "DECIMAL")
+    private Double totalAmount;
+
 }
