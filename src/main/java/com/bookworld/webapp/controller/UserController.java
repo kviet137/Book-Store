@@ -21,6 +21,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -40,19 +41,41 @@ public class UserController {
 
     @GetMapping(value = "/user/cart")
     public ModelAndView showUserCart() {
-        ModelAndView response = new ModelAndView();
-        response.setViewName("user/cart");
+        ModelAndView response = new ModelAndView("user/cart");
+        User user = authenticatedUserService.loadCurrentUser();
+
+        if (user != null) {
+            Order order = orderDAO.findOrderByUserIdAndStatus(user.getId(), "cart");
+            if (order != null) {
+                response.addObject("order", order);
+            } else {
+                // If no cart exists, pass an empty Order object
+                response.addObject("order", new Order());
+            }
+        } else {
+            response.setViewName("redirect:/login/login");
+        }
 
         return response;
     }
 
-    @GetMapping(value = "/user/history")
+    @GetMapping("/user/history")
     public ModelAndView showUserHistory() {
-        ModelAndView response = new ModelAndView();
-        response.setViewName("user/history");
+        ModelAndView response = new ModelAndView("user/history");
+        User user = authenticatedUserService.loadCurrentUser();
+
+        if (user != null) {
+            // Fetch completed orders for the user
+            List<Order> completedOrders = orderDAO.findAllByUserIdAndStatus(user.getId(), "completed");
+            response.addObject("completedOrders", completedOrders);
+        } else {
+            response.setViewName("redirect:/login/login");
+        }
 
         return response;
     }
+
+
 
 
 
@@ -107,27 +130,54 @@ public class UserController {
         return response;
     }
 
-//    @PostMapping("/cart/remove")
-//    public String removeFromCart(@RequestParam Integer orderDetailId, @RequestParam Integer userId, RedirectAttributes redirectAttributes) {
-//        Integer orderDetail = orderDetailDAO.findById(orderDetailId);
-//        if (orderDetail != null) {
-//            orderDetailDAO.deleteById(orderDetail);
-//        }
-//
-//        // Fetch the updated cart
-//        Order order = orderDAO.findActiveOrderByUserId(userId);
-//        redirectAttributes.addFlashAttribute("order", order);
-//
-//        return "redirect:/cart/view?userId=" + userId;
-//    }
 
 
 
-//    @GetMapping("/cart/view")
-//    public ModelAndView viewCart(@RequestParam Integer userId) {
-//        ModelAndView response = new ModelAndView("user/cart");
-//        Order order = orderDAO.findActiveOrderByUserId(userId);
-//        response.addObject("order", order);
-//        return response;
-//    }
+
+    @PostMapping("/cart/update/quantity")
+    public String updateQuantity(@RequestParam Integer orderDetailId, @RequestParam String action, RedirectAttributes redirectAttributes) {
+        OrderDetail orderDetail = orderDetailDAO.findOrderDetailById(orderDetailId);
+        if (orderDetail != null) {
+            if ("increase".equalsIgnoreCase(action)) {
+                // Increase the quantity
+                orderDetail.setQuantity(orderDetail.getQuantity() + 1);
+                orderDetailDAO.save(orderDetail);
+            } else if ("decrease".equalsIgnoreCase(action)) {
+                // Decrease the quantity
+                if (orderDetail.getQuantity() > 1) {
+                    orderDetail.setQuantity(orderDetail.getQuantity() - 1);
+                    orderDetailDAO.save(orderDetail);
+                } else {
+                    // If the quantity is 1, remove the item from the cart
+                    orderDetailDAO.delete(orderDetail);
+                }
+            }
+        }
+        return "redirect:/user/cart";
+    }
+
+    @PostMapping("/checkout")
+    public String proceedToCheckout(RedirectAttributes redirectAttributes) {
+        // Load the currently authenticated user
+        User user = authenticatedUserService.loadCurrentUser();
+        if (user == null) {
+            // Redirect to login if user is not authenticated
+            return "redirect:/login/login";
+        }
+
+        // Find the active cart order
+        Order order = orderDAO.findOrderByUserIdAndStatus(user.getId(), "cart");
+        if (order != null) {
+            // Update order status to completed
+            order.setStatus("completed");
+            orderDAO.save(order);
+            redirectAttributes.addFlashAttribute("message", "Checkout completed successfully!");
+        } else {
+            redirectAttributes.addFlashAttribute("error", "No active cart found!");
+        }
+
+        return "redirect:/user/history"; // Redirect to order history or confirmation page
+    }
+
+
 }
