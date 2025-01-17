@@ -37,7 +37,10 @@
                         </td>
                         <td>
                             <!-- View Details Button -->
-                            <a href="/order/details/${order.id}" class="btn btn-info btn-sm" aria-label="View details of Order ${order.id}">
+<%--                            <a href="/order/details/${order.id}" class="btn btn-info btn-sm" aria-label="View details of Order ${order.id}">--%>
+<%--                                View Details--%>
+<%--                            </a>--%>
+                            <a href="#" class="btn btn-info btn-sm" aria-label="View details of Order ${order.id}">
                                 View Details
                             </a>
                         </td>
