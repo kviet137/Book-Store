@@ -2,15 +2,17 @@
 
 <jsp:include page="../include/adminHeader.jsp"/>
 
-<section class="bg-light1 pt-5">
+<section class="bg-light pt-5">
     <div class="container">
         <div class="row justify-content-center">
             <h1 class="text-center">Create/Edit Book</h1>
         </div>
     </div>
 </section>
-<section class ="bg-light2 pt-5 pb-5">
+<section>
+    <div class="bg-light py-3 py-md-5">
     <div class="container">
+        <div class="bg-white p-4 p-md-5 rounded shadow-sm">
         <form action = "/book/createBook" method = "POST">
             <input type = "hidden" name = "id" value = "${form.id}"/>
             <div class="mt-3 row justify-content-center">
@@ -118,14 +120,15 @@
                 </div>
             </div>
 
-        
+
                 <div class="d-flex justify-content-center mt-4">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
 
         </form>
 
-
+        </div>
+    </div>
     </div>
 
 </section>

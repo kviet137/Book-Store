@@ -1,11 +1,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <jsp:include page="include/header.jsp"/>
-<section class="bg-primary text-white text-center py-5">
+<section class="bg-primary text-white text-center py-2">
     <div class="container">
-        <h1 class="display-4">Welcome to Book World</h1>
-        <p class="lead">Discover your next favorite read from our wide collection of books across all genres.</p>
-        <a href="#" class="btn btn-light btn-lg">Learn More</a>
+        <h4 >Welcome to Book World</h4>
+        <p>Discover your next favorite read from our wide collection of books across all genres.</p>
+        <a href="#" class="btn btn-light mb-2">Learn More</a>
     </div>
 </section>
 
@@ -18,23 +18,23 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://static.vecteezy.com/system/resources/thumbnails/025/067/762/small_2x/4k-beautiful-colorful-abstract-wallpaper-photo.jpg"
+                <img src="../pub/images/carousel1.png"
                      class="d-block w-100"
-                     width="1000" height="430"
+                     width="1000" height="400"
                      style="object-fit: cover;"
                      alt="...">
             </div>
             <div class="carousel-item">
-                <img src="https://i.pinimg.com/originals/68/8d/d3/688dd325dbbdc238f4b70caffe77a5af.jpg"
+                <img src="../pub/images/carousel2.png"
                      class="d-block w-100"
-                     width="1000" height="430"
+                     width="1000" height="400"
                      style="object-fit: cover;"
                      alt="...">
             </div>
             <div class="carousel-item">
-                <img src="https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg"
+                <img src="../pub/images/carousel3.png"
                      class="d-block w-100"
-                     width="1000" height="430"
+                     width="1000" height="400"
                      style="object-fit: cover;"
                      alt="...">
             </div>
