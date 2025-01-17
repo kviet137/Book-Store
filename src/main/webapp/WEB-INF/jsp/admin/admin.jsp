@@ -49,7 +49,7 @@
                                     <tr>
                                         <td><a href="/book/edit/${book.id}">Edit</a></td>
                                         <td>${book.title}</td>
-                                        <td>Image</td>
+                                        <td><img src="${book.imageUrl}"  class="text-primary text-decoration-none" style="height: 100px; object-fit: cover;" alt="${book.title}"></td>
                                         <td>${book.author}</td>
                                         <td>${book.price}</td>
                                         <td>${book.genre}</td>

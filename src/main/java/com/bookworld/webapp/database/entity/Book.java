@@ -42,6 +42,6 @@ public class Book {
     private String description;
 
     @Column(name = "image")
-    private String image;
+    private String imageUrl;
 
 }

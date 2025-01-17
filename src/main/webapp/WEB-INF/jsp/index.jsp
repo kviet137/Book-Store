@@ -18,6 +18,13 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
+                <img src="../pub/images/carousel3.png"
+                     class="d-block w-100"
+                     width="1000" height="400"
+                     style="object-fit: cover;"
+                     alt="...">
+            </div>
+            <div class="carousel-item">
                 <img src="../pub/images/carousel1.png"
                      class="d-block w-100"
                      width="1000" height="400"
@@ -26,13 +33,6 @@
             </div>
             <div class="carousel-item">
                 <img src="../pub/images/carousel2.png"
-                     class="d-block w-100"
-                     width="1000" height="400"
-                     style="object-fit: cover;"
-                     alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="../pub/images/carousel3.png"
                      class="d-block w-100"
                      width="1000" height="400"
                      style="object-fit: cover;"

@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 
 @Slf4j
@@ -88,6 +91,18 @@ public class BookController {
             book.setGenre(form.getGenre());
             book.setDescription(form.getDescription());
 
+            log.debug("uploaded filename = " + form.getUpload().getOriginalFilename() + " size = " + form.getUpload().getSize());
+            // create a new file object that represents the location to save the upload to
+            // we know that intellij always assumes the current working directory is the root of the project so we are making
+            // a relative URL To the images folder within our project
+            String pathToSave = "./src/main/webapp/pub/images/" + form.getUpload().getOriginalFilename();
+            // this is a java utility that will read the file from the upload and write it to the file we created above
+            // will not take the entire file into memory
+            Files.copy(form.getUpload().getInputStream(), Paths.get(pathToSave), StandardCopyOption.REPLACE_EXISTING);
+            // this is the url that we will use to display the image in the browser
+            // it is an absolute URL based on the webapp folder as it would be used in the html
+            String url = "/pub/images/" + form.getUpload().getOriginalFilename();
+            book.setImageUrl(url);
             bookDAO.save(book);
             response.setViewName("redirect:/book/edit/" + book.getId());
 
@@ -110,6 +125,9 @@ public class BookController {
         form.setPrice(book.getPrice());
         form.setGenre(book.getGenre());
         form.setDescription(book.getDescription());
+
+//        String url = "/pub/images/" + form.getImage().getOriginalFilename();
+//        form.setImage(book.getImage(url));
 
         response.addObject("form", form);
 

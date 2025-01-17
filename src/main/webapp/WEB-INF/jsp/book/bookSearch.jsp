@@ -40,20 +40,17 @@
       <c:forEach var="book" items="${booksKey}">
         <div class="col-md-6 mb-4">
           <div class="card h-100 shadow-sm">
-            <img src="${book.image}" class="card-img-top" alt="${book.title}">
+
             <div class="card-body">
               <h5 class="card-title">
                 <a href="/book/detail/${book.id}" class="text-primary text-decoration-none">${book.title}</a>
               </h5>
+              <img src="${book.imageUrl}" class="rounded float-start me-3" style="height: 400px; object-fit: cover;" alt="${book.title}">
               <p class="card-text"><strong>Author:</strong> ${book.author}</p>
               <p class="card-text"><strong>Genre:</strong> ${book.genre}</p>
               <p class="card-text"><strong>Price:</strong> $${book.price}</p>
               <p class="card-text"><strong>Description:</strong> ${book.description}</p>
-              <div class="d-flex">
-                <button class="btn btn-outline-primary btn-sm me-2" onclick="addToCart('${book.title}')">Add to Cart</button>
-                <button class="btn btn-outline-danger btn-sm me-2" onclick="addToFavorite('${book.title}')">Add to Favorite</button>
-                <button class="btn btn-outline-warning btn-sm" onclick="addToWishList('${book.title}')">Add to Wish List</button>
-              </div>
+
             </div>
           </div>
         </div>

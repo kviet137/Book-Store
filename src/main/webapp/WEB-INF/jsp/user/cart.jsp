@@ -34,7 +34,7 @@
                 <tr>
                     <!-- Display Book Image -->
                     <td>
-                        <img src="${orderDetail.book.image}" alt="${orderDetail.book.title}" class="img-fluid" style="max-width: 100px; height: auto;"/>
+                        <img src="${orderDetail.book.imageUrl}" alt="${orderDetail.book.title}" class="img-fluid" style="max-width: 100px; height: auto;"/>
                     </td>
                     <td>${orderDetail.book.title}</td>
                     <td>

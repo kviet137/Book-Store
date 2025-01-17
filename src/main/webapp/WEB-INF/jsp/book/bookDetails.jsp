@@ -9,7 +9,7 @@
         <div class="card shadow-sm">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="${book.image}" class="img-fluid rounded-start" alt="${book.title}">
+                    <img src="${book.imageUrl}" class="img-fluid rounded-start" alt="${book.title}" style="height: 400px; object-fit: cover;">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">

@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.validator.constraints.Length;
+import org.springframework.web.multipart.MultipartFile;
 
 @Getter
 @Setter
@@ -35,6 +36,7 @@ public class CreateBookFormBean {
     private String description;
     //
 
-    private String image;
-    //need to implement!
+    private MultipartFile upload;
+
+
 }

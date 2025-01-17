@@ -13,7 +13,7 @@
     <div class="bg-light py-3 py-md-5">
     <div class="container">
         <div class="bg-white p-4 p-md-5 rounded shadow-sm">
-        <form action = "/book/createBook" method = "POST">
+        <form action = "/book/createBook" method = "POST" enctype="multipart/form-data">
             <input type = "hidden" name = "id" value = "${form.id}"/>
             <div class="mt-3 row justify-content-center">
                 <label for="title" class="col-sm-2 col-form-label">Book Tittle</label>
@@ -97,7 +97,7 @@
             <div class="mt-3 row justify-content-center">
                 <label for="description" class="col-sm-2 col-form-label">Description</label>
                 <div class="col-sm-10 col-lg-6">
-                    <textarea class="form-control" id="description" name="description">${form.description}</textarea>
+                    <textarea class="form-control" id="description" name="description" placeholder="Enter a brief description of the book" rows="4">${form.description}</textarea>
                 </div>
             </div>
             <c:if test="${bindingResult.hasFieldErrors('description')}">
