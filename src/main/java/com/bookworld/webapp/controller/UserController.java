@@ -116,7 +116,7 @@ public class UserController {
         orderDetailDAO.save(orderDetail);
 
         // Add success message to RedirectAttributes
-        redirectAttributes.addFlashAttribute("message", "Added to Cart");
+        redirectAttributes.addFlashAttribute("message", "Added to ");
 
         // Redirect to book detail page with the success message
         return "redirect:/book/detail/" + bookId;

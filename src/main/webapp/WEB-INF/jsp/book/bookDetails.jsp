@@ -16,9 +16,11 @@
             <!-- Add to Cart Button -->
             <a href="/cart/add/${book.id}" class="btn btn-sm btn-outline-primary me-2">Add to Cart</a>
 
-            <!-- Success Message -->
+            <!-- Success Message styled as a button -->
             <c:if test="${not empty message}">
-                <div class="alert alert-success mb-0">${message}</div>
+                <div class="alert alert-success mb-0 d-inline-block px-3 py-1 text-center">
+                        ${message}<a href="/user/cart" class="alert-link">Cart</a>
+                </div>
             </c:if>
         </div>
     </div>
