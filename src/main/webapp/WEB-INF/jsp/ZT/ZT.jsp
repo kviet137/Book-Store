@@ -1,141 +1,64 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<jsp:include page="../include/adminHeader.jsp"/>
-
-<!-- Navigation Bar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+<jsp:include page="../include/header.jsp"/>
+<link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<div class="bg-light py-3 py-md-5">
     <div class="container">
-        <a class="navbar-brand" href="#">Admin Dashboard</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Books</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Logout</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<!-- Page Content -->
-<div class="container my-5">
-    <h1 class="text-center mb-4">Create/Edit Book</h1>
-    <div class="row justify-content-center">
-        <div class="col-lg-6 col-md-8">
-            <form action = "/book/createBook" method = "POST">
-                <input type = "hidden" name = "id" value = "${form.id}"/>
-                <div class="mb-3">
-                    <label for="title" class="form-label">Book Title</label>
-                    <div >
-                    <input type="text" class="form-control" id="title" name="title" value="${form.title}">
-                </div>
-                </div>
-                <c:if test="${bindingResult.hasFieldErrors('title')}">
-                    <div class="row justify-content-center">
-                        <div class="col-sm-2"></div>
-                        <div class="col-sm-10 col-lg-6">
-                            <c:forEach var="error" items="${bindingResult.getFieldErrors('title')}">
-                                <dd class="mb-0 form_input_error">${error.getDefaultMessage()}</dd>
-                            </c:forEach>
+        <div class="row justify-content-md-center">
+            <div class="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6">
+                <div class="bg-white p-4 p-md-5 rounded shadow-sm">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="text-center mb-4">
+                                <h1 class="m-0 text-center">Login</h1>
+                            </div>
                         </div>
                     </div>
-                </c:if>
-
-                <div class="mb-3">
-                    <label for="author" class="form-label">Author</label>
-                    <input type="text" class="form-control" id="author" name="author" value="${form.author}">
-                </div>
-                <c:if test="${bindingResult.hasFieldErrors('author')}">
-                    <div class="row justify-content-center">
-                        <div class="col-sm-2"></div>
-                        <div class="col-sm-10 col-lg-6">
-                            <c:forEach var="error" items="${bindingResult.getFieldErrors('author')}">
-                                <dd class="mb-0 form_input_error">${error.getDefaultMessage()}</dd>
-                            </c:forEach>
+                    <form action="/login/loginSubmit" method="post">
+                        <div class="row gy-3 gy-md-4 overflow-hidden">
+                            <div class="col-12">
+                                <label for="username" class="form-label">Email <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                  <span class="input-group-text">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                      <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
+                    </svg>
+                  </span>
+                                    <input type="text" class="form-control" id="username" name="username" value="">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                  <span class="input-group-text">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key" viewBox="0 0 16 16">
+                      <path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z" />
+                      <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                    </svg>
+                  </span>
+                                    <input type="password" class="form-control" id="password" name="password" value="">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-grid">
+                                    <button class="btn btn-primary btn-lg" type="submit">Log In</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="row">
+                        <div class="col-12">
+                            <hr class="mt-1 mb-4 border-secondary-subtle">
+                            <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-md-center">
+                                <a href="#!" class="link-secondary text-decoration-none">Create new account</a>
+                                <a href="#!" class="link-secondary text-decoration-none">Forgot password</a>
+                            </div>
                         </div>
                     </div>
-                </c:if>
-                <div class="mb-3">
-                    <label for="price" class="form-label">Price</label>
-                    <input type="text" class="form-control" id="price" name="price" value="${form.price}">
                 </div>
-                <c:if test="${bindingResult.hasFieldErrors('price')}">
-                    <div class="row justify-content-center">
-                        <div class="col-sm-2"></div>
-                        <div class="col-sm-10 col-lg-6">
-                            <c:forEach var="error" items="${bindingResult.getFieldErrors('price')}">
-                                <dd class="mb-0 form_input_error">${error.getDefaultMessage()}</dd>
-                            </c:forEach>
-                        </div>
-                    </div>
-                </c:if>
-                <div class="mb-3">
-                    <label for="genre" class="form-label">Category</label>
-                    <select class="form-select" id="genre" name="genre">
-                        <option disabled ${form.genre == null ? 'selected' : ''}>Select Genre</option>
-                        <option ${form.genre == 'Fiction' ? 'selected' : ''}>Fiction</option>
-                        <option ${form.genre == 'Classic Fiction' ? 'selected' : ''}>Classic Fiction</option>
-                        <option ${form.genre == 'Science Fiction' ? 'selected' : ''}>Science Fiction</option>
-                        <option ${form.genre == 'Romance' ? 'selected' : ''}>Romance</option>
-                        <option ${form.genre == 'Fantasy' ? 'selected' : ''}>Fantasy</option>
-                        <option ${form.genre == 'Dystopian' ? 'selected' : ''}>Dystopian</option>
-                        <option ${form.genre == 'Horror' ? 'selected' : ''}>Horror</option>
-                        <option ${form.genre == 'Thriller' ? 'selected' : ''}>Thriller</option>
-                    </select>
-                </div>
-                <c:if test="${bindingResult.hasFieldErrors('genre')}">
-                    <div class="row justify-content-center">
-                        <div class="col-sm-2"></div>
-                        <div class="col-sm-10 col-lg-6">
-                            <c:forEach var="error" items="${bindingResult.getFieldErrors('genre')}">
-                                <dd class="mb-0 form_input_error">${error.getDefaultMessage()}</dd>
-                            </c:forEach>
-                        </div>
-                    </div>
-                </c:if>
-                <div class="mb-3">
-                    <label for="description" class="form-label">Description</label>
-                    <textarea class="form-control" id="description" name="description" rows="4" placeholder="Enter a brief description of the book">${form.description}</textarea>
-                </div>
-                <c:if test="${bindingResult.hasFieldErrors('description')}">
-                    <div class="row justify-content-center">
-                        <div class="col-sm-2"></div>
-                        <div class="col-sm-10 col-lg-6">
-                            <c:forEach var="error" items="${bindingResult.getFieldErrors('description')}">
-                                <dd class="mb-0 form_input_error">${error.getDefaultMessage()}</dd>
-                            </c:forEach>
-                        </div>
-                    </div>
-                </c:if>
-
-                <div class="mb-3">
-                    <label for="upload" class="form-label">Upload Image</label>
-                    <input type="file" class="form-control" id="upload" name="upload">
-                </div>
-                <div class="d-grid">
-                    <button type="submit" class="btn btn-primary">Create Book</button>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
 </div>
 
-<!-- Footer -->
-<footer class="bg-dark text-white text-center py-3 mt-auto">
-    <div class="container">
-        <p class="mb-0">&copy; 2025 Admin Dashboard. All rights reserved.</p>
-    </div>
-</footer>
-
-<!-- Bootstrap 5 JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+<jsp:include page="../include/footer.jsp"/>
