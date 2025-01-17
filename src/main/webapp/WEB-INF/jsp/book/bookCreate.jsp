@@ -118,12 +118,11 @@
                 </div>
             </div>
 
-            <div class="mt-3 row justify-content-center">
-                <div class="col-sm-12 col-lg-8">
-
+        
+                <div class="d-flex justify-content-center mt-4">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
-            </div>
+
         </form>
 
 

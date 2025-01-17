@@ -7,7 +7,7 @@
 
 <div class="d-flex flex-grow-1">
     <!-- Sidebar -->
-    <div class="bg-dark text-white p-3 ">
+    <div class="bg-primary text-white p-3 ">
         <h3 class="text-center">Admin</h3>
         <ul class="nav flex-column">
             <li class="nav-item mb-2"><a href="/book/create" class="nav-link text-white">Add New Book</a></li>
