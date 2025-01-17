@@ -80,27 +80,21 @@ public class UserController {
 
 
     @GetMapping("/cart/add/{bookId}")
-    public ModelAndView addToCart(@PathVariable Integer bookId) {
-
-        ModelAndView response = new ModelAndView();
-        response.setViewName("user/cart");
+    public String addToCart(@PathVariable Integer bookId, RedirectAttributes redirectAttributes) {
 
         if (bookId == null || bookId < 0) {
-            response.setViewName("redirect:/error/500");
-            return response;
+            return "redirect:/error/500";
         }
 
         User user = authenticatedUserService.loadCurrentUser();
         if (user == null) {
-            // If user is not authenticated, redirect to login page or show error message
-            response.setViewName("redirect:/login/login");  // Or your login URL
-            return response;
+            return "redirect:/login/login";  // Redirect to login page if not authenticated
         }
         Integer userId = user.getId();
 
         Book book = bookDAO.findBookById(bookId);
 
-        Order order = orderDAO.findOrderByUserIdAndStatus(userId,"cart");
+        Order order = orderDAO.findOrderByUserIdAndStatus(userId, "cart");
         if (order == null) {
             order = new Order();
             order.setUser(user);
@@ -108,27 +102,26 @@ public class UserController {
             Timestamp currentTime = new Timestamp(System.currentTimeMillis());
             order.setOrderDate(currentTime);
             orderDAO.save(order);
-
         }
 
-
-        OrderDetail orderDetail = orderDetailDAO.findOrderDetailByBookIdAndOrderId(book.getId(),order.getId());
+        OrderDetail orderDetail = orderDetailDAO.findOrderDetailByBookIdAndOrderId(book.getId(), order.getId());
         if (orderDetail == null) {
             orderDetail = new OrderDetail();
             orderDetail.setOrder(order);
             orderDetail.setBook(book);
             orderDetail.setQuantity(1);
-            //need to set total amount
-
-        }else{
-            orderDetail.setQuantity(orderDetail.getQuantity()+1);
+        } else {
+            orderDetail.setQuantity(orderDetail.getQuantity() + 1);
         }
         orderDetailDAO.save(orderDetail);
-        response.addObject("orderDetail", orderDetail);
 
-        response.setViewName("redirect:/user/cart");
-        return response;
+        // Add success message to RedirectAttributes
+        redirectAttributes.addFlashAttribute("message", "Added to Cart");
+
+        // Redirect to book detail page with the success message
+        return "redirect:/book/detail/" + bookId;
     }
+
 
 
 

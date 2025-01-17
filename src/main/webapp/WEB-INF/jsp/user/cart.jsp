@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <jsp:include page="../include/header.jsp"/>
 <div class="container my-5">
@@ -23,6 +24,8 @@
             </tr>
             </thead>
             <tbody>
+            <c:set var="subtotal" value="0" />
+            <c:set var="totalItems" value="0" />
             <c:forEach var="orderDetail" items="${order.orderDetails}">
                 <tr>
                     <td>${orderDetail.book.title}</td>
@@ -37,10 +40,21 @@
                     <td>${orderDetail.book.price}</td>
                     <td>${orderDetail.quantity * orderDetail.book.price}</td>
                 </tr>
+                <!-- Add to subtotal and total items -->
+                <c:set var="subtotal" value="${subtotal + (orderDetail.quantity * orderDetail.book.price)}" />
+                <c:set var="totalItems" value="${totalItems + orderDetail.quantity}" />
             </c:forEach>
             </tbody>
         </table>
     </div>
+
+    <!-- Subtotal and Total Items Section -->
+    <div class="d-flex justify-content-end mt-3">
+        <h4>Subtotal (${totalItems} Items):
+            <fmt:formatNumber value="${subtotal}" maxFractionDigits="2" minFractionDigits="2" />
+        </h4>
+    </div>
+
     <div class="d-flex justify-content-end mt-3">
         <form action="/checkout" method="post">
             <button type="submit" class="btn btn-primary">Proceed to Checkout</button>

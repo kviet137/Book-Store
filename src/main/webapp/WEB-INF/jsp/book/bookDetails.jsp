@@ -11,8 +11,16 @@
         <p><strong>Price:</strong> $${book.price}</p>
         <p><strong>Description:</strong> ${book.description}</p>
 
-        <!-- Add to Cart Button -->
-        <a href="/cart/add/${book.id}" class="btn btn-sm btn-outline-primary me-2">Add to Cart</a>
+        <!-- Display success message next to the Add to Cart Button -->
+        <div class="d-flex justify-content-start align-items-center">
+            <!-- Add to Cart Button -->
+            <a href="/cart/add/${book.id}" class="btn btn-sm btn-outline-primary me-2">Add to Cart</a>
+
+            <!-- Success Message -->
+            <c:if test="${not empty message}">
+                <div class="alert alert-success mb-0">${message}</div>
+            </c:if>
+        </div>
     </div>
 </c:if>
 
