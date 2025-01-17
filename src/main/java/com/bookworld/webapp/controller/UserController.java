@@ -135,26 +135,38 @@ public class UserController {
 
 
     @PostMapping("/cart/update/quantity")
-    public String updateQuantity(@RequestParam Integer orderDetailId, @RequestParam String action, RedirectAttributes redirectAttributes) {
+    public String updateQuantity(@RequestParam Integer orderDetailId,
+                                 @RequestParam(required = false) String action,
+                                 @RequestParam(required = false) Integer quantity,
+                                 RedirectAttributes redirectAttributes) {
         OrderDetail orderDetail = orderDetailDAO.findOrderDetailById(orderDetailId);
         if (orderDetail != null) {
+            String bookTitle = orderDetail.getBook().getTitle(); // Retrieve the book title
             if ("increase".equalsIgnoreCase(action)) {
-                // Increase the quantity
                 orderDetail.setQuantity(orderDetail.getQuantity() + 1);
                 orderDetailDAO.save(orderDetail);
             } else if ("decrease".equalsIgnoreCase(action)) {
-                // Decrease the quantity
                 if (orderDetail.getQuantity() > 1) {
                     orderDetail.setQuantity(orderDetail.getQuantity() - 1);
                     orderDetailDAO.save(orderDetail);
                 } else {
-                    // If the quantity is 1, remove the item from the cart
                     orderDetailDAO.delete(orderDetail);
+                    redirectAttributes.addFlashAttribute("message", "\"" + bookTitle + "\" has been removed from your cart.");
+                }
+            } else if (quantity != null) {
+                if (quantity > 0) {
+                    orderDetail.setQuantity(quantity);
+                    orderDetailDAO.save(orderDetail);
+                } else {
+                    orderDetailDAO.delete(orderDetail);
+                    redirectAttributes.addFlashAttribute("message", "\"" + bookTitle + "\" has been removed from your cart.");
                 }
             }
         }
         return "redirect:/user/cart";
     }
+
+
 
     @PostMapping("/checkout")
     public String proceedToCheckout(RedirectAttributes redirectAttributes) {

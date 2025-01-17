@@ -3,6 +3,15 @@
 <jsp:include page="../include/header.jsp"/>
 <div class="container my-5">
     <h1 class="text-center mb-4">Your Shopping Cart</h1>
+
+    <!-- Display Flash Message -->
+    <c:if test="${not empty message}">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </c:if>
+
     <div class="table-responsive">
         <table class="table table-bordered table-hover">
             <thead class="table-dark">
@@ -11,38 +20,22 @@
                 <th>Quantity</th>
                 <th>Price</th>
                 <th>Total</th>
-                <th>Actions</th>
             </tr>
             </thead>
             <tbody>
             <c:forEach var="orderDetail" items="${order.orderDetails}">
                 <tr>
                     <td>${orderDetail.book.title}</td>
-                    <td>${orderDetail.quantity}</td>
+                    <td>
+                        <!-- Editable Quantity Input -->
+                        <form action="/cart/update/quantity" method="post" class="d-flex align-items-center quantity-form">
+                            <input type="hidden" name="orderDetailId" value="${orderDetail.id}" />
+                            <input type="number" name="quantity" min="0" value="${orderDetail.quantity}" class="form-control form-control-sm me-2 quantity-input" style="width: 70px;" />
+                            <button type="submit" class="btn btn-primary btn-sm">Update</button>
+                        </form>
+                    </td>
                     <td>${orderDetail.book.price}</td>
                     <td>${orderDetail.quantity * orderDetail.book.price}</td>
-                    <td>
-                        <div class="d-flex align-items-center">
-                            <!-- Increase Button -->
-                            <form action="/cart/update/quantity" method="post" class="me-2">
-                                <input type="hidden" name="orderDetailId" value="${orderDetail.id}" />
-                                <input type="hidden" name="action" value="increase" />
-                                <button type="submit" class="btn btn-success btn-sm">
-                                    +
-                                </button>
-                            </form>
-
-                            <!-- Decrease Button -->
-                            <form action="/cart/update/quantity" method="post">
-                                <input type="hidden" name="orderDetailId" value="${orderDetail.id}" />
-                                <input type="hidden" name="action" value="decrease" />
-                                <button type="submit" class="btn btn-danger btn-sm">
-                                    -
-                                </button>
-                            </form>
-                        </div>
-                    </td>
-
                 </tr>
             </c:forEach>
             </tbody>
