@@ -8,8 +8,8 @@
         <h1 class="text-center mb-4">Book Details</h1>
         <div class="card shadow-sm">
             <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="${book.imageUrl}" class="img-fluid rounded-start" alt="${book.title}" style="height: 400px; object-fit: cover;">
+                <div class="col-md-3">
+                    <img src="${book.imageUrl}" class="img-fluid rounded-start" alt="${book.title}" style="height: 400px;">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
@@ -26,7 +26,7 @@
                             <!-- Success Message styled as a badge -->
                             <c:if test="${not empty message}">
                                 <div class="alert alert-info mb-0 d-inline-block px-3 py-2 text-center">
-                                        ${message} <a href="/user/cart" class="alert-link">View Cart</a>
+                                        ${message} <a href="/user/cart" class="alert-link">Cart</a>
                                 </div>
                             </c:if>
                         </div>
