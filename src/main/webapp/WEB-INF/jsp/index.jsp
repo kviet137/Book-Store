@@ -1,6 +1,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <jsp:include page="include/header.jsp"/>
+<section class="bg-primary text-white text-center py-5">
+    <div class="container">
+        <h1 class="display-4">Welcome to Book World</h1>
+        <p class="lead">Discover your next favorite read from our wide collection of books across all genres.</p>
+        <a href="#" class="btn btn-light btn-lg">Learn More</a>
+    </div>
+</section>
 
     <!-- Bootstrap Carousel -->
     <div id="carouselExampleIndicators" class="carousel slide mb-5" data-bs-ride="carousel">

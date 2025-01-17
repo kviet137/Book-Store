@@ -2,10 +2,10 @@
 
 <jsp:include page="../include/adminHeader.jsp"/>
 
-<section class="bg-light1 pt-5 pb-5">
+<section class="bg-light1 pt-5">
     <div class="container">
-        <div class="row">
-            <h1 class ="m-9 text-center">Add/Edit Book</h1>
+        <div class="row justify-content-center">
+            <h1 class="text-center">Create/Edit Book</h1>
         </div>
     </div>
 </section>
