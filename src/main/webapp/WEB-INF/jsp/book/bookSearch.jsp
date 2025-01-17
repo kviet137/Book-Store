@@ -45,7 +45,7 @@
               <h5 class="card-title">
                 <a href="/book/detail/${book.id}" class="text-primary text-decoration-none">${book.title}</a>
               </h5>
-              <img src="${book.imageUrl}" class="rounded float-start me-3" style="height: 400px; object-fit: cover;" alt="${book.title}">
+              <img src="${book.imageUrl}" class="rounded float-start me-3" style="max-width: 200px; height: auto; object-fit: cover;" alt="${book.title}">
               <p class="card-text"><strong>Author:</strong> ${book.author}</p>
               <p class="card-text"><strong>Genre:</strong> ${book.genre}</p>
               <p class="card-text"><strong>Price:</strong> $${book.price}</p>

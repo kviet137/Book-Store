@@ -36,7 +36,7 @@
                     <td>
                         <img src="${orderDetail.book.imageUrl}" alt="${orderDetail.book.title}" class="img-fluid" style="max-width: 100px; height: auto;"/>
                     </td>
-                    <td>${orderDetail.book.title}</td>
+                    <td><a href="/book/detail/${orderDetail.book.id}" class="text-primary text-decoration-none">${orderDetail.book.title}</a></td>
                     <td>
                         <!-- Editable Quantity Input -->
                         <form action="/cart/update/quantity" method="post" class="d-flex align-items-center quantity-form">
