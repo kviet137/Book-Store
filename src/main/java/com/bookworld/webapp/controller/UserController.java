@@ -145,7 +145,7 @@ public class UserController {
                     orderDetailDAO.save(orderDetail);
                 } else {
                     orderDetailDAO.delete(orderDetail);
-                    redirectAttributes.addFlashAttribute("message", "\"" + bookTitle + "\" has been removed from your cart.");
+                    redirectAttributes.addFlashAttribute("removedItemMessage", "\"" + bookTitle + "\" has been removed from your cart.");
 
             }
         }
@@ -170,12 +170,12 @@ public class UserController {
             order.setStatus("completed");
             order.setTotalAmount(subtotal);
             orderDAO.save(order);
-            redirectAttributes.addFlashAttribute("message", "Checkout completed successfully!");
+            redirectAttributes.addFlashAttribute("checkoutCompletedMessage", "Checkout completed successfully!");
         } else {
             redirectAttributes.addFlashAttribute("error", "No active cart found!");
         }
 
-        return "redirect:/user/history"; // Redirect to order history or confirmation page
+        return "redirect:/user/cart"; // Redirect to order history or confirmation page
     }
 
 

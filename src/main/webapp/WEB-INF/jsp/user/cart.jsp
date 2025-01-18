@@ -7,9 +7,15 @@
     <h1 class="text-center mb-4">Your Shopping Cart</h1>
 
     <!-- Display Flash Message -->
-    <c:if test="${not empty message}">
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                ${message}
+    <c:if test="${not empty removedItemMessage}">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                ${removedItemMessage}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </c:if>
+    <c:if test="${not empty checkoutCompletedMessage}">
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+                ${checkoutCompletedMessage}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     </c:if>
