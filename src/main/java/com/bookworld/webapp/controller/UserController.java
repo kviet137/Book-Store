@@ -155,7 +155,7 @@ public class UserController {
 
 
     @PostMapping("/checkout")
-    public String proceedToCheckout(RedirectAttributes redirectAttributes) {
+    public String proceedToCheckout(@RequestParam("subtotal") Double subtotal,RedirectAttributes redirectAttributes) {
         // Load the currently authenticated user
         User user = authenticatedUserService.loadCurrentUser();
         if (user == null) {
@@ -168,6 +168,7 @@ public class UserController {
         if (order != null) {
             // Update order status to completed
             order.setStatus("completed");
+            order.setTotalAmount(subtotal);
             orderDAO.save(order);
             redirectAttributes.addFlashAttribute("message", "Checkout completed successfully!");
         } else {

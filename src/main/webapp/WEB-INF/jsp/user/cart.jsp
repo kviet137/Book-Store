@@ -70,6 +70,7 @@
     <!-- Proceed to Checkout Button -->
     <div class="d-flex justify-content-end mt-3">
         <form action="/checkout" method="post">
+            <input type="hidden" name="subtotal" value="${subtotal}" />
             <button type="submit" class="btn btn-success">Proceed to Checkout</button>
         </form>
     </div>
