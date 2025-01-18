@@ -139,20 +139,6 @@ public class UserController {
         if (orderDetail != null) {
             Double bookPrice = orderDetail.getBook().getPrice();
             String bookTitle = orderDetail.getBook().getTitle();// Retrieve the book title
-            if ("increase".equalsIgnoreCase(action)) {
-                orderDetail.setQuantity(orderDetail.getQuantity() + 1);
-                orderDetail.setTotalPrice(bookPrice * orderDetail.getQuantity());
-                orderDetailDAO.save(orderDetail);
-            } else if ("decrease".equalsIgnoreCase(action)) {
-                if (orderDetail.getQuantity() > 1) {
-                    orderDetail.setQuantity(orderDetail.getQuantity() - 1);
-                    orderDetail.setTotalPrice(bookPrice * orderDetail.getQuantity());
-                    orderDetailDAO.save(orderDetail);
-                } else {
-                    orderDetailDAO.delete(orderDetail);
-                    redirectAttributes.addFlashAttribute("message", "\"" + bookTitle + "\" has been removed from your cart.");
-                }
-            } else if (quantity != null) {
                 if (quantity > 0) {
                     orderDetail.setQuantity(quantity);
                     orderDetail.setTotalPrice(bookPrice * orderDetail.getQuantity());
@@ -160,7 +146,7 @@ public class UserController {
                 } else {
                     orderDetailDAO.delete(orderDetail);
                     redirectAttributes.addFlashAttribute("message", "\"" + bookTitle + "\" has been removed from your cart.");
-                }
+
             }
         }
         return "redirect:/user/cart";
