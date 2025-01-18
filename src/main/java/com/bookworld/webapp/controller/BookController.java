@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -66,7 +67,7 @@ public class BookController {
     }
 
     @PostMapping("/book/createBook")
-    public ModelAndView createBookSubmit(@Valid CreateBookFormBean form, BindingResult bindingResult) throws Exception {
+    public ModelAndView createBookSubmit(@Valid CreateBookFormBean form, BindingResult bindingResult, RedirectAttributes redirectAttributes) throws Exception {
         ModelAndView response = new ModelAndView();
 
         response.setViewName("book/bookCreate");
@@ -104,6 +105,7 @@ public class BookController {
             String url = "/pub/images/" + form.getUpload().getOriginalFilename();
             book.setImageUrl(url);
             bookDAO.save(book);
+            redirectAttributes.addFlashAttribute("message", "\"" + form.getTitle() + "\" has been added/modified.");
             response.setViewName("redirect:/book/edit/" + book.getId());
 
         }

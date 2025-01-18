@@ -9,10 +9,16 @@
         </div>
     </div>
 </section>
+
 <section>
     <div class="bg-light py-3 py-md-5">
     <div class="container">
         <div class="bg-white p-4 p-md-5 rounded shadow-sm">
+            <c:if test="${not empty message}">
+                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                        ${message}
+                </div>
+            </c:if>
         <form action = "/book/createBook" method = "POST" enctype="multipart/form-data">
             <input type = "hidden" name = "id" value = "${form.id}"/>
             <div class="mt-3 row justify-content-center">
