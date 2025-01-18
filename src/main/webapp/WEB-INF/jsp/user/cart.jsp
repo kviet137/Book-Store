@@ -49,7 +49,7 @@
                         <fmt:formatNumber value="${orderDetail.book.price}" maxFractionDigits="2" minFractionDigits="2" />
                     </td>
                     <td>
-                        <fmt:formatNumber value="${orderDetail.quantity * orderDetail.book.price}" maxFractionDigits="2" minFractionDigits="2" />
+                        <fmt:formatNumber value="${orderDetail.totalPrice}" maxFractionDigits="2" minFractionDigits="2" />
                     </td>
 
                 </tr>

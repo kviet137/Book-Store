@@ -101,19 +101,20 @@ public class UserController {
             order.setStatus("cart");
             Timestamp currentTime = new Timestamp(System.currentTimeMillis());
             order.setOrderDate(currentTime);
-
             orderDAO.save(order);
         }
 
         OrderDetail orderDetail = orderDetailDAO.findOrderDetailByBookIdAndOrderId(book.getId(), order.getId());
+
         if (orderDetail == null) {
             orderDetail = new OrderDetail();
             orderDetail.setOrder(order);
             orderDetail.setBook(book);
             orderDetail.setQuantity(1);
-
+            orderDetail.setTotalPrice(book.getPrice() * orderDetail.getQuantity());
         } else {
             orderDetail.setQuantity(orderDetail.getQuantity() + 1);
+            orderDetail.setTotalPrice(book.getPrice() * orderDetail.getQuantity());
         }
         orderDetailDAO.save(orderDetail);
 
@@ -136,13 +137,16 @@ public class UserController {
                                  RedirectAttributes redirectAttributes) {
         OrderDetail orderDetail = orderDetailDAO.findOrderDetailById(orderDetailId);
         if (orderDetail != null) {
-            String bookTitle = orderDetail.getBook().getTitle(); // Retrieve the book title
+            Double bookPrice = orderDetail.getBook().getPrice();
+            String bookTitle = orderDetail.getBook().getTitle();// Retrieve the book title
             if ("increase".equalsIgnoreCase(action)) {
                 orderDetail.setQuantity(orderDetail.getQuantity() + 1);
+                orderDetail.setTotalPrice(bookPrice * orderDetail.getQuantity());
                 orderDetailDAO.save(orderDetail);
             } else if ("decrease".equalsIgnoreCase(action)) {
                 if (orderDetail.getQuantity() > 1) {
                     orderDetail.setQuantity(orderDetail.getQuantity() - 1);
+                    orderDetail.setTotalPrice(bookPrice * orderDetail.getQuantity());
                     orderDetailDAO.save(orderDetail);
                 } else {
                     orderDetailDAO.delete(orderDetail);
@@ -151,6 +155,7 @@ public class UserController {
             } else if (quantity != null) {
                 if (quantity > 0) {
                     orderDetail.setQuantity(quantity);
+                    orderDetail.setTotalPrice(bookPrice * orderDetail.getQuantity());
                     orderDetailDAO.save(orderDetail);
                 } else {
                     orderDetailDAO.delete(orderDetail);
