@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 
 <jsp:include page="../include/header.jsp"/>
 
@@ -32,8 +33,7 @@
                         <td>${order.orderDate}</td>
                         <td><span class="badge bg-success">Completed</span></td>
                         <td>
-                            need to do
-<%--                            <fmt:formatNumber value="${order.totalAmount}" maxFractionDigits="2" minFractionDigits="2" />--%>
+                            <fmt:formatNumber value="${order.totalAmount}" maxFractionDigits="2" minFractionDigits="2" />
                         </td>
                         <td>
                             <!-- View Details Button -->

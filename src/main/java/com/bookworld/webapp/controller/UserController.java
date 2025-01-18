@@ -101,6 +101,7 @@ public class UserController {
             order.setStatus("cart");
             Timestamp currentTime = new Timestamp(System.currentTimeMillis());
             order.setOrderDate(currentTime);
+
             orderDAO.save(order);
         }
 
@@ -110,6 +111,7 @@ public class UserController {
             orderDetail.setOrder(order);
             orderDetail.setBook(book);
             orderDetail.setQuantity(1);
+
         } else {
             orderDetail.setQuantity(orderDetail.getQuantity() + 1);
         }

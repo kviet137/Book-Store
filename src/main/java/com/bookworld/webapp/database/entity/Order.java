@@ -38,5 +38,8 @@ public class Order {
     @Column(name = "status")
     private String status;
 
+    @Column(name= "total_amount",columnDefinition = "DECIMAL")
+    private Double totalAmount;
+
 
 }
