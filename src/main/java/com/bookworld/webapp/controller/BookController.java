@@ -93,17 +93,24 @@ public class BookController {
             book.setDescription(form.getDescription());
 
             log.debug("uploaded filename = " + form.getUpload().getOriginalFilename() + " size = " + form.getUpload().getSize());
-            // create a new file object that represents the location to save the upload to
-            // we know that intellij always assumes the current working directory is the root of the project so we are making
-            // a relative URL To the images folder within our project
-            String pathToSave = "./src/main/webapp/pub/images/" + form.getUpload().getOriginalFilename();
-            // this is a java utility that will read the file from the upload and write it to the file we created above
-            // will not take the entire file into memory
-            Files.copy(form.getUpload().getInputStream(), Paths.get(pathToSave), StandardCopyOption.REPLACE_EXISTING);
-            // this is the url that we will use to display the image in the browser
-            // it is an absolute URL based on the webapp folder as it would be used in the html
-            String url = "/pub/images/" + form.getUpload().getOriginalFilename();
-            book.setImageUrl(url);
+
+            if (form.getUpload() != null && form.getUpload().getOriginalFilename() != null && !form.getUpload().getOriginalFilename().isEmpty()) {
+                String filename = form.getUpload().getOriginalFilename();
+                String pathToSave = "./src/main/webapp/pub/images/" + filename;
+
+                // Save the file
+                Files.copy(form.getUpload().getInputStream(), Paths.get(pathToSave), StandardCopyOption.REPLACE_EXISTING);
+
+                // Construct the URL and set it in the book object
+                String url = "/pub/images/" + filename;
+                book.setImageUrl(url);
+            } else {
+                // No new file uploaded
+                String existingUrl = book.getImageUrl();
+                book.setImageUrl(existingUrl != null ? existingUrl : "/pub/images/default.png"); // Use default if no existing URL
+            }
+
+
             bookDAO.save(book);
             redirectAttributes.addFlashAttribute("message", "\"" + form.getTitle() + "\" has been added/modified.");
             response.setViewName("redirect:/book/edit/" + book.getId());

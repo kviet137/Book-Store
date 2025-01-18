@@ -30,11 +30,10 @@ public class CreateBookFormBean {
     @Length(max = 50, message = "genre must be less than 50 characters.")
     @NotEmpty(message = "genre is required.")
     private String genre;
-    //
+
 
     @Length(max = 5000)
     private String description;
-    //
 
     private MultipartFile upload;
 
