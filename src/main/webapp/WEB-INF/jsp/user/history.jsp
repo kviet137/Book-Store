@@ -33,7 +33,7 @@
                         <td>${order.orderDate}</td>
                         <td><span class="badge bg-success">Completed</span></td>
                         <td>
-                            <fmt:formatNumber value="${order.totalAmount}" maxFractionDigits="2" minFractionDigits="2" />
+                            $<fmt:formatNumber value="${order.totalAmount}" maxFractionDigits="2" minFractionDigits="2" />
                         </td>
                         <td>
                             <!-- View Details Button -->

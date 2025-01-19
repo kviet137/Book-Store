@@ -11,7 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" >
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="/index">Book World</a>
 
@@ -50,13 +50,15 @@
                     <a class="nav-link" href="/admin/admin">Admin</a>
                 </li>
                 <sec:authorize access="isAuthenticated()">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login/logout">Logout</a>
-                    </li>
-                    <li class="nav-item">
-                            <span class="nav-link">Hello,
-                                <sec:authentication property="principal.username"/>
-                            </span>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Hello, <sec:authentication property="principal.username"/>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="/login/logout">Logout</a></li>
+                        </ul>
                     </li>
                 </sec:authorize>
                 <li class="nav-item ms-auto">
@@ -117,8 +119,7 @@
             document.getElementById("changeLocationBtn").textContent = "Location: " + savedLocation;
         }
     });
-
-
 </script>
 
-
+</body>
+</html>

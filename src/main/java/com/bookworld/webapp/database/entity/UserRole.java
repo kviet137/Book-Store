@@ -17,8 +17,12 @@ public class UserRole {
     @Column(name = "id")
     private Integer id;
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user_id", nullable = false)
+    @ToString.Exclude
+    private User user;
 
-    @Column(name = "user_id")
+    @Column(name = "user_id",insertable=false, updatable=false)
     private Integer userId;
 
     @Column(name = "role_name")

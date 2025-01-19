@@ -47,7 +47,7 @@
                         <!-- Editable Quantity Input -->
                         <form action="/cart/update/quantity" method="post" class="d-flex align-items-center quantity-form">
                             <input type="hidden" name="orderDetailId" value="${orderDetail.id}" />
-                            <input type="number" name="quantity" min="0" value="${orderDetail.quantity}" class="form-control form-control-sm me-2 quantity-input" aria-label="Quantity for ${orderDetail.book.title}" style="width: 70px;" />
+                            <input type="number" name="quantity" min="0" value="${orderDetail.quantity}" class="form-control form-control-sm me-2 quantity-input" aria-label="Quantity for ${orderDetail.book.title}" style="width: 70px;" required />
                             <button type="submit" class="btn btn-primary btn-sm">Update</button>
                         </form>
                     </td>

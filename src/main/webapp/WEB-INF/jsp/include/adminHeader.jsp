@@ -24,13 +24,15 @@
                         <a class="nav-link" href="/admin/admin">Admin</a>
                     </li>
                     <sec:authorize access="isAuthenticated()">
-                        <li class="nav-item">
-                            <span class="nav-link">Hello,
-                                <sec:authentication property="principal.username"/>
-                            </span>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/login/logout">Logout</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Hello, <sec:authentication property="principal.username"/>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li><a class="dropdown-item" href="#">Settings</a></li>
+                                <li><a class="dropdown-item" href="/login/logout">Logout</a></li>
+                            </ul>
                         </li>
                     </sec:authorize>
 

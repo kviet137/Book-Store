@@ -8,8 +8,8 @@
 <div class="d-flex flex-grow-1">
     <!-- Sidebar -->
     <div class="bg-primary text-white p-3 ">
-        <h3 class="text-center">Admin</h3>
-        <ul class="nav flex-column">
+        <h3 class="text-start ms-3 mt-2">Menu</h3>
+        <ul class="nav flex-column mt-4">
             <li class="nav-item mb-2"><a href="/book/create" class="nav-link text-white">Add New Book</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link text-white">Dashboard</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link text-white">Analytics</a></li>
