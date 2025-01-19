@@ -42,11 +42,12 @@ public class LoginController {
         return response;
     }
 
+
     @GetMapping("/login/signup")
     public ModelAndView signup() {
         ModelAndView response = new ModelAndView();
 
-        response.setViewName("login/signup");
+        response.setViewName("login/signupPage");
 
         return response;
     }
@@ -57,13 +58,13 @@ public class LoginController {
         ModelAndView response = new ModelAndView();
 
         if (bindingResult.hasErrors()) {
-            response.setViewName("login/signup");
+            response.setViewName("login/signupPage");
             response.addObject("bindingResult", bindingResult); //"bindingResult" is linked to the jsp page
             response.addObject("form", form);
         } else{
             User user = new User();
-
-            user.setEmail(form.getEmail());
+            user.setEmail(form.getUsername());
+            user.setFullName(form.getFullName());
 
             String encryptedPassword = passwordEncoder.encode(form.getPassword());
             user.setPassword(encryptedPassword);

@@ -19,13 +19,6 @@ public class User {
     @Column(name = "id")
     private Integer id;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @ToString.Exclude
-    private List<Order> orders;
-
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @ToString.Exclude
-    private List<UserRole> userRoles;
 
     @Column(name = "email")
     private String email;
@@ -33,10 +26,8 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "first_name")
-    private String firstName;
+    @Column(name = "full_name")
+    private String fullName;
 
-    @Column(name = "last_name")
-    private String lastName;
 
 }

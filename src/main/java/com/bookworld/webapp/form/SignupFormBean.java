@@ -10,15 +10,14 @@ import lombok.Setter;
 public class SignupFormBean {
 
 
-    @NotEmpty(message = "username is required")
+    @NotEmpty(message = "Email is required")
     private String username;
 
-    //@EmailUnique(message = "email already been used")
-    @NotEmpty(message = "email is required")
-    private String email;
-
-    @NotEmpty(message = "password is required")
+    @NotEmpty(message = "Password is required")
     private String password;
+
+    @NotEmpty(message = "Full Name is required")
+    private String fullName;
 
 
 
