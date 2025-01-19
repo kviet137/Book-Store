@@ -51,10 +51,10 @@
         </div>
     </c:if>
 
-    <!-- Login redirect notice if user is not authenticated -->
+    <!-- Search redirect notice if history is empty-->
     <c:if test="${empty completedOrders}">
         <div class="text-center mt-5">
-            <p>You are not logged in. Please <a href="${pageContext.request.contextPath}/login/login" class="btn btn-primary">Login</a></p>
+            <p>Your order history is empty. <a href="${pageContext.request.contextPath}/book/search?bookTitle=" >Start here.</a></p>
         </div>
     </c:if>
 </div>
