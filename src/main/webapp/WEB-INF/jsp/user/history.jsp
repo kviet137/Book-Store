@@ -59,8 +59,6 @@
     </c:if>
 </div>
 
-<!-- Bootstrap 5 JavaScript and dependencies -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-lZqWJOGqaPiyjS9rbL0aKf3Y8qqIHOoii3Vb1WyS0dB3w/Wvgmj29csYO9pD8c7M" crossorigin="anonymous"></script>
 
 </body>
 </html>

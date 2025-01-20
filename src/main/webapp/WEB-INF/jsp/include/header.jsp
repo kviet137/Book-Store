@@ -14,7 +14,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/index">Book World</a>
+        <a class="navbar-brand ms-2" href="/index">Book World</a>
 
         <!-- Change Location Button next to Book World -->
         <button class="btn btn-link ms-3" type="button" id="changeLocationBtn" data-bs-toggle="modal" data-bs-target="#locationModal">
@@ -26,7 +26,7 @@
         </button>
 
         <!-- Search bar in the center -->
-        <form action="/book/search" class="d-flex mx-auto ms-4 mb-0" role="search" style="width: 55%;">
+        <form action="/book/search" class="d-flex mx-auto ms-4 mb-0" role="search" style="width: 45%;">
             <input class="form-control me-2" name="bookTitle" type="text" placeholder="Search for Books..." aria-label="Search" value="${bookTitle}">
             <button class="btn btn-primary" type="submit">Search</button>
         </form>
@@ -34,19 +34,11 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <!-- Login link on the right -->
             <ul class="navbar-nav ms-auto">
+                <sec:authorize access="!isAuthenticated()">
                 <li class="nav-item ms-auto">
                     <a class="nav-link" href="/login/login">Login</a>
                 </li>
-                <li class="nav-item ms-auto">
-                    <a class="nav-link" href="/login/signup">SignUp</a>
-                </li>
-                <li class="nav-item ms-auto">
-                    <a class="nav-link" href="/user/history">History</a>
-                </li>
-                <li class="nav-item ms-auto">
-                    <a class="nav-link" href="/user/cart">Cart</a>
-                </li>
-
+                </sec:authorize>
                 <li class="nav-item ms-auto">
                     <a class="nav-link" href="/admin/admin">Admin</a>
                 </li>
@@ -57,11 +49,15 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" href="/user/history">Orders</a></li>
                             <li><a class="dropdown-item" href="#">Settings</a></li>
                             <li><a class="dropdown-item" href="/login/logout">Logout</a></li>
                         </ul>
                     </li>
                 </sec:authorize>
+                <li class="nav-item ms-auto">
+                    <a class="nav-link" href="/user/cart">Cart</a>
+                </li>
                 <li class="nav-item ms-auto">
                     <a class="nav-link" href="/ZT/ZT">ztest</a>
                 </li>
