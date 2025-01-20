@@ -32,6 +32,7 @@ public class Order {
     @Column(name = "user_id",insertable=false, updatable=false)
     private Integer userId;
 
+    @Temporal(TemporalType.DATE)
     @Column(name = "order_date", columnDefinition = "DATE")
     private Date orderDate;
 
