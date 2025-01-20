@@ -10,6 +10,9 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -32,13 +35,20 @@ public class LoginController {
     private AuthenticatedUserService authenticatedUserService;
 
 
-    //the mapping need to match the spring security config .. .loginPage method
     @GetMapping("/login/login")
     public ModelAndView login() {
         ModelAndView response = new ModelAndView();
 
-        response.setViewName("login/loginPage");
+        // Check if the user is already authenticated
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && authentication.isAuthenticated() && !(authentication instanceof AnonymousAuthenticationToken)) {
+            // User is logged in, redirect to a home page
+            response.setViewName("redirect:/index");
+            return response;
+        }
 
+        // User is not logged in, show the login page
+        response.setViewName("login/loginPage");
         return response;
     }
 
@@ -46,6 +56,13 @@ public class LoginController {
     @GetMapping("/login/signup")
     public ModelAndView signup() {
         ModelAndView response = new ModelAndView();
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && authentication.isAuthenticated() && !(authentication instanceof AnonymousAuthenticationToken)) {
+            // User is logged in, redirect to a home page
+            response.setViewName("redirect:/index");
+            return response;
+        }
 
         response.setViewName("login/signupPage");
 
