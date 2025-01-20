@@ -132,7 +132,6 @@ public class UserController {
 
     @PostMapping("/cart/update/quantity")
     public String updateQuantity(@RequestParam Integer orderDetailId,
-                                 @RequestParam(required = false) String action,
                                  @RequestParam(required = false) Integer quantity,
                                  RedirectAttributes redirectAttributes) {
         OrderDetail orderDetail = orderDetailDAO.findOrderDetailById(orderDetailId);
