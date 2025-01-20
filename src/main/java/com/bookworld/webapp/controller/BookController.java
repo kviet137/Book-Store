@@ -7,6 +7,7 @@ import com.bookworld.webapp.form.CreateBookFormBean;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
@@ -57,6 +58,7 @@ public class BookController {
         return response;
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/book/create")
     public ModelAndView createBook() {
         ModelAndView response = new ModelAndView();
@@ -66,6 +68,7 @@ public class BookController {
         return response;
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping("/book/createBook")
     public ModelAndView createBookSubmit(@Valid CreateBookFormBean form, BindingResult bindingResult, RedirectAttributes redirectAttributes) throws Exception {
         ModelAndView response = new ModelAndView();
@@ -120,6 +123,7 @@ public class BookController {
         return response;
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/book/edit/{bookId}")
     public ModelAndView editBook(@PathVariable Integer bookId) {
         ModelAndView response = new ModelAndView();

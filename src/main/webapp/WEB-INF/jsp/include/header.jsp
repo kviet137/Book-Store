@@ -39,9 +39,11 @@
                     <a class="nav-link" href="/login/login">Login</a>
                 </li>
                 </sec:authorize>
+                <sec:authorize access="hasAnyAuthority('ADMIN')">
                 <li class="nav-item ms-auto">
                     <a class="nav-link" href="/admin/admin">Admin</a>
                 </li>
+                </sec:authorize>
                 <sec:authorize access="isAuthenticated()">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
