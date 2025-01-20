@@ -9,7 +9,7 @@
     <!-- If there are no completed orders, display a message -->
     <c:if test="${empty completedOrders}">
         <div class="alert alert-info" role="alert">
-            You currently have no completed orders.
+            You currently have no completed orders. <a href="${pageContext.request.contextPath}/book/search?bookTitle=" >Start here.</a>
         </div>
     </c:if>
 
@@ -50,13 +50,7 @@
             </table>
         </div>
     </c:if>
-
-    <!-- Search redirect notice if history is empty-->
-    <c:if test="${empty completedOrders}">
-        <div class="text-center mt-5">
-            <p>Your order history is empty. <a href="${pageContext.request.contextPath}/book/search?bookTitle=" >Start here.</a></p>
-        </div>
-    </c:if>
+    
 </div>
 
 
