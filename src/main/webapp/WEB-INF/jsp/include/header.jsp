@@ -60,9 +60,6 @@
                 <li class="nav-item ms-auto">
                     <a class="nav-link" href="/user/cart">Cart</a>
                 </li>
-                <li class="nav-item ms-auto">
-                    <a class="nav-link" href="/ZT/ZT">ztest</a>
-                </li>
             </ul>
         </div>
     </div>
