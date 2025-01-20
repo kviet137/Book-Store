@@ -9,7 +9,7 @@
     <!-- If there are no completed orders, display a message -->
     <c:if test="${empty completedOrders}">
         <div class="alert alert-info" role="alert">
-            You have no completed orders yet.
+            You currently have no completed orders.
         </div>
     </c:if>
 

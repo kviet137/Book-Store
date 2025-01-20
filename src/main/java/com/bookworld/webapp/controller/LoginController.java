@@ -54,32 +54,41 @@ public class LoginController {
 
     @PostMapping("/login/signupSubmit")
     public ModelAndView signupSubmit(@Valid SignupFormBean form, BindingResult bindingResult, HttpSession session) {
-
         ModelAndView response = new ModelAndView();
 
+        // Check for binding errors first
         if (bindingResult.hasErrors()) {
             response.setViewName("login/signupPage");
-            response.addObject("bindingResult", bindingResult); //"bindingResult" is linked to the jsp page
+            response.addObject("bindingResult", bindingResult);
             response.addObject("form", form);
-        } else{
-            User user = new User();
-            user.setEmail(form.getUsername());
-            user.setFullName(form.getFullName());
-
-            String encryptedPassword = passwordEncoder.encode(form.getPassword());
-            user.setPassword(encryptedPassword);
-
-            userDAO.save(user);
-
-            authenticatedUserService.changeLoggedInUsername(session, form.getUsername(), form.getPassword());
-
-            response.setViewName("redirect:/");
+            return response;
         }
 
+        // Validate that password and confirmPassword match
+        if (!form.getPassword().equals(form.getConfirmPassword())) {
+            bindingResult.rejectValue("password", "error.confirmPassword", "Passwords do not match");
+            bindingResult.rejectValue("confirmPassword", "error.confirmPassword", "Passwords do not match");
+            response.setViewName("login/signupPage");
+            response.addObject("bindingResult", bindingResult);
+            response.addObject("form", form);
+            return response;
+        }
 
+        // Save user if no errors
+        User user = new User();
+        user.setEmail(form.getUsername());
+        user.setFullName(form.getFullName());
 
+        String encryptedPassword = passwordEncoder.encode(form.getPassword());
+        user.setPassword(encryptedPassword);
+
+        userDAO.save(user);
+
+        authenticatedUserService.changeLoggedInUsername(session, form.getUsername(), form.getPassword());
+
+        response.setViewName("redirect:/");
         return response;
-
     }
+
 
 }

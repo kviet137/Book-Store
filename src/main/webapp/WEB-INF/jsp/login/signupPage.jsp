@@ -107,20 +107,30 @@
                             </c:if>
 
 <%--                            <!-- Confirm Password -->--%>
-<%--                            <div class="col-12">--%>
-<%--                                <label for="confirmPassword" class="form-label">Confirm Password <span--%>
-<%--                                        class="text-danger">*</span></label>--%>
-<%--                                <div class="input-group">--%>
-<%--                                    <span class="input-group-text">--%>
-<%--                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"--%>
-<%--                                             fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">--%>
-<%--                                            <path d="M13.854 3.646a.5.5 0 0 1 0 .708L6.707 11.5 3.146 7.854a.5.5 0 1 1 .708-.708l2.646 2.647 6.5-6.5a.5.5 0 0 1 .708 0z"/>--%>
-<%--                                        </svg>--%>
-<%--                                    </span>--%>
-<%--                                    <input type="password" class="form-control" id="confirmPassword"--%>
-<%--                                           name="confirmPassword" value="" required>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
+                            <div class="col-12">
+                                <label for="confirmPassword" class="form-label">Confirm Password <span
+                                        class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                             fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+                                            <path d="M13.854 3.646a.5.5 0 0 1 0 .708L6.707 11.5 3.146 7.854a.5.5 0 1 1 .708-.708l2.646 2.647 6.5-6.5a.5.5 0 0 1 .708 0z"/>
+                                        </svg>
+                                    </span>
+                                    <input type="password" class="form-control" id="confirmPassword"
+                                           name="confirmPassword" value="">
+                                </div>
+                            </div>
+                            <c:if test="${bindingResult.hasFieldErrors('confirmPassword')}">
+                                <div class="row justify-content-center">
+                                    <div class="col-sm-2"></div>
+                                    <div class="col-sm-10 col-lg-6">
+                                        <c:forEach var="error" items="${bindingResult.getFieldErrors('confirmPassword')}">
+                                            <dd class="mb-0 form_input_error text-danger">${error.getDefaultMessage()}</dd>
+                                        </c:forEach>
+                                    </div>
+                                </div>
+                            </c:if>
 
                             <!-- Submit Button -->
                             <div class="col-12">
