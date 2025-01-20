@@ -1,9 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <jsp:include page="include/header.jsp"/>
-<section class="bg-primary text-white text-center py-2">
+<section class="bg-primary text-white text-center py-3">
     <div class="container">
-        <h4 >Welcome to Book World</h4>
+        <h3 >Welcome to Book World</h3>
         <p>Discover your next favorite read from our wide collection of books across all genres.</p>
         <a href="#" class="btn btn-light mb-2">Learn More</a>
     </div>
