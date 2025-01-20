@@ -58,7 +58,7 @@
             <div class="mt-3 row justify-content-center">
                 <label for="price" class="col-sm-2 col-form-label">Price</label>
                 <div class="col-sm-10 col-lg-6">
-                    <input type="text" class="form-control" id="price" name="price" value="${form.price}">
+                    <input type="number" min="0" step="0.01" class="form-control" id="price" name="price" value="${form.price}">
                 </div>
             </div>
             <c:if test="${bindingResult.hasFieldErrors('price')}">
