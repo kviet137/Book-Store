@@ -25,9 +25,6 @@
     - [Installation](#installation)
 - [Usage](#usage)
 - [Screenshots](#screenshots)
-- [Roadmap](#roadmap)
-- [Contributing](#contributing)
-- [License](#license)
 - [Contact](#contact)
 
 ---
@@ -41,7 +38,7 @@ Book World is an online bookstore application that allows users to browse, searc
 - **User Authentication & Authorization**: Secure login and role-based access using Spring Security.
 - **Responsive Design**: Clean, mobile-friendly UI with Bootstrap.
 - **Book Catalog Management**: Display and filter books dynamically.
-- **Search Functionality**: Search for books by title, author, or category.
+- **Search Functionality**: Search for your favorite books.
 - **Cart & Checkout**: Add books to the cart and simulate a purchase process.
 
 ### Built With
@@ -92,3 +89,28 @@ Follow these instructions to set up a local copy of the project.
 5.  **Access the Application: Open your browser and navigate to http://localhost:9090**.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Usage
+- User Role: Browse books, add them to the cart, and proceed to checkout.
+- Admin Role : Manage the book catalog, view sales, and handle user management.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Screenshots 📸
+1. Homepage
+
+2. Book Details
+
+3. Login Page
+
+4. Cart and Checkout
+
+5. Admin Panel
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Contact 📬
+For any inquiries or feedback, feel free to reach out at:
+
+Email: kviet137@gmail.com
+GitHub: https://github.com/kviet137
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p
