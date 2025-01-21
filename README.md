@@ -24,8 +24,8 @@
     - [Prerequisites](#prerequisites)
     - [Installation](#installation)
 - [Usage](#usage)
-- [Screenshots](#screenshots)
-- [Contact](#contact)
+- [Screenshots](#screenshots-)
+- [Contact](#contact-)
 
 ---
 
