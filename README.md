@@ -115,4 +115,4 @@ For any inquiries or feedback, feel free to reach out at:
 Email: kviet137@gmail.com
 GitHub: https://github.com/kviet137
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
