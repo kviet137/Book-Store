@@ -98,15 +98,17 @@ Follow these instructions to set up a local copy of the project.
 ### Screenshots 📸
 1. Homepage ![homepageSS.png](src%2Fmain%2Fwebapp%2Fpub%2Fscreenshots%2FhomepageSS.png)
 
-2. Book Details ![bookdetailSS.png](src%2Fmain%2Fwebapp%2Fpub%2Fscreenshots%2FbookdetailSS.png)
+2. Login Page ![loginSS.png](src%2Fmain%2Fwebapp%2Fpub%2Fscreenshots%2FloginSS.png)
 
-3. Login Page ![loginSS.png](src%2Fmain%2Fwebapp%2Fpub%2Fscreenshots%2FloginSS.png)
+3. Book Search ![booksearchSS.png](src%2Fmain%2Fwebapp%2Fpub%2Fscreenshots%2FbooksearchSS.png)
 
-4. Cart and Checkout ![cartSS.png](src%2Fmain%2Fwebapp%2Fpub%2Fscreenshots%2FcartSS.png)
+4. Book Details ![bookdetailSS.png](src%2Fmain%2Fwebapp%2Fpub%2Fscreenshots%2FbookdetailSS.png)
 
-5. Order History ![orderhistorySS.png](src%2Fmain%2Fwebapp%2Fpub%2Fscreenshots%2ForderhistorySS.png)
+5. Cart and Checkout ![cartSS.png](src%2Fmain%2Fwebapp%2Fpub%2Fscreenshots%2FcartSS.png)
 
-6. Admin Panel ![adminSS.png](src%2Fmain%2Fwebapp%2Fpub%2Fscreenshots%2FadminSS.png)
+6. Order History ![orderhistorySS.png](src%2Fmain%2Fwebapp%2Fpub%2Fscreenshots%2ForderhistorySS.png)
+
+7. Admin Panel ![adminSS.png](src%2Fmain%2Fwebapp%2Fpub%2Fscreenshots%2FadminSS.png)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Contact 📬
