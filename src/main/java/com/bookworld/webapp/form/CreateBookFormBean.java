@@ -15,7 +15,7 @@ public class CreateBookFormBean {
 
     private Integer id;
 
-    @Length(max = 50, message = "title must be less than 50 characters.")
+    @Length(max = 500, message = "title must be less than 500 characters.")
     @NotEmpty(message = "title is required.")
     private String title;
 
