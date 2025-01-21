@@ -91,20 +91,22 @@ Follow these instructions to set up a local copy of the project.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Usage
-- User Role: Browse books, add them to the cart, and proceed to checkout.
+- User Role: Browse books, add them to the cart, proceed to checkout, and view order history.
 - Admin Role : Manage the book catalog, view sales, and handle user management.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Screenshots 📸
-1. Homepage
+1. Homepage ![homepageSS.png](src%2Fmain%2Fwebapp%2Fpub%2Fscreenshots%2FhomepageSS.png)
 
-2. Book Details
+2. Book Details ![bookdetailSS.png](src%2Fmain%2Fwebapp%2Fpub%2Fscreenshots%2FbookdetailSS.png)
 
-3. Login Page
+3. Login Page ![loginSS.png](src%2Fmain%2Fwebapp%2Fpub%2Fscreenshots%2FloginSS.png)
 
-4. Cart and Checkout
+4. Cart and Checkout ![cartSS.png](src%2Fmain%2Fwebapp%2Fpub%2Fscreenshots%2FcartSS.png)
 
-5. Admin Panel
+5. Order History ![orderhistorySS.png](src%2Fmain%2Fwebapp%2Fpub%2Fscreenshots%2ForderhistorySS.png)
+
+6. Admin Panel ![adminSS.png](src%2Fmain%2Fwebapp%2Fpub%2Fscreenshots%2FadminSS.png)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Contact 📬
